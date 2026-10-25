@@ -72,6 +72,33 @@ describe('autenticação JWT', () => {
     expect(veneno.statusCode).toBe(400);
   });
 
+  it('recusa caractere nulo no corpo e na URL com 400, sem chegar ao banco', async () => {
+    const corpo = await app.inject({
+      method: 'POST',
+      url: '/api/v1/auth/login',
+      headers: { 'content-type': 'application/json' },
+      payload: '{"email":"a\\u0000@b.c","senha":"x"}',
+    });
+    expect(corpo.statusCode).toBe(400);
+    expect(corpo.json()).toMatchObject({ code: 'ENTRADA_INVALIDA', message: expect.stringContaining('nulo') });
+    const url = await app.inject({ method: 'GET', url: '/api/v1/health?x=%00' });
+    expect(url.statusCode).toBe(400);
+  });
+
+  it('envia cabeçalhos de segurança e proíbe cache na API', async () => {
+    const res = await app.inject({ method: 'GET', url: '/api/v1/health' });
+    expect(res.headers).toMatchObject({
+      'x-content-type-options': 'nosniff',
+      'cross-origin-resource-policy': 'same-origin',
+      'x-frame-options': 'DENY',
+      'referrer-policy': 'no-referrer',
+      'cache-control': 'no-store',
+    });
+    const docs = await app.inject({ method: 'GET', url: '/api/docs/json' });
+    expect(docs.headers['x-content-type-options']).toBe('nosniff');
+    expect(docs.headers['cache-control']).not.toBe('no-store');
+  });
+
   it('exige token em rota protegida', async () => {
     const res = await app.inject({ method: 'GET', url: '/api/v1/auth/me' });
     expect(res.statusCode).toBe(401);

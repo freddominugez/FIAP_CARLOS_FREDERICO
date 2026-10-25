@@ -10,6 +10,9 @@ RUN npm run build && npm prune --omit=dev
 
 FROM node:24-alpine
 ENV NODE_ENV=production
+# a imagem final roda só node: npm e corepack da imagem base saem, com as CVEs que trazem (Trivy, D+7)
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack \
+  /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack
 WORKDIR /app
 COPY --from=build --chown=node:node /app/node_modules ./node_modules
 COPY --from=build --chown=node:node /app/dist ./dist

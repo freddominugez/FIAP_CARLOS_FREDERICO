@@ -1,0 +1,15 @@
+Roteiro: oficina-api/scripts/roteiro-ponta-a-ponta.mjs
+Alvo: https://oficina-fiap-soat.vercel.app
+Data: 2026-10-25T22:21:05Z
+
+OK    login dos 3 perfis
+OK    entrada de estoque
+OK    CNPJ alfanumérico
+OK    orçamento publicado: OS-2026-000001 R$ 235,00
+OK    última unidade disputada: 200 e 409
+OK    cliente B recebe 404 na OS do cliente A
+OK    ciclo completo até ENTREGUE, 6 mudanças no histórico
+OK    estoque baixado: físico 0, reservado 0
+OK    tempo médio: amostra 1, 5 s
+OK    cliente vê a própria OS em /me/orders
+exit=0

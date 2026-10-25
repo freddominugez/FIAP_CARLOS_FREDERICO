@@ -23,6 +23,8 @@ import {
 } from '../infrastructure/repositories/cadastros-pg.js';
 import { UsuarioPgRepository } from '../infrastructure/repositories/usuario-pg-repository.js';
 import autenticacao from '../interfaces/http/plugins/autenticacao.js';
+import cabecalhosSeguranca from '../interfaces/http/plugins/cabecalhos-seguranca.js';
+import entrada from '../interfaces/http/plugins/entrada.js';
 import tratamentoErros from '../interfaces/http/plugins/tratamento-erros.js';
 import { rotasAutenticacao } from '../interfaces/http/routes/autenticacao.js';
 import { rotasCatalogo } from '../interfaces/http/routes/catalogo.js';
@@ -62,14 +64,6 @@ export async function criarApp({ config, db, logger }: Dependencias) {
     ajv: { customOptions: { removeAdditional: false, coerceTypes: false } },
   }).withTypeProvider<TypeBoxTypeProvider>();
 
-  // POST sem corpo com content-type JSON (comum em clientes HTTP) vale como corpo ausente.
-  // O resto continua no parser padrão, que barra __proto__ e constructor.
-  const jsonPadrao = app.getDefaultJsonParser('error', 'error');
-  app.removeContentTypeParser('application/json');
-  app.addContentTypeParser('application/json', { parseAs: 'string' }, (req, corpo, done) =>
-    corpo === '' ? done(null, undefined) : jsonPadrao(req, corpo as string, done),
-  );
-
   app.addHook('onSend', async (req, reply) => {
     reply.header('x-request-id', req.id);
   });
@@ -81,7 +75,7 @@ export async function criarApp({ config, db, logger }: Dependencias) {
       info: {
         title: 'Oficina API',
         description: 'Back-end da oficina mecânica. Tech Challenge Fase 1, FIAP SOAT.',
-        version: '0.5.1',
+        version: '0.6.0',
       },
       components: {
         securitySchemes: { bearerAuth: { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' } },
@@ -91,6 +85,8 @@ export async function criarApp({ config, db, logger }: Dependencias) {
   await app.register(swaggerUi, { routePrefix: '/api/docs' });
 
   await app.register(tratamentoErros);
+  await app.register(entrada);
+  await app.register(cabecalhosSeguranca);
   await app.register(autenticacao, { jwt: config.jwt });
 
   const usuarios = new UsuarioPgRepository(db);

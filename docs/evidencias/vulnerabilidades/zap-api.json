@@ -1,0 +1,1743 @@
+{
+	"@programName": "ZAP",
+	"@version": "2.17.0",
+	"@generated": "Sun, 25 Oct 2026 22:19:29",
+	"created": "2026-10-25T22:19:29.364631849Z",
+	"insights":[
+		{
+			"level": "Medium",
+			"reason": "Exceeded High",
+			"site": "http://api:3000",
+			"key": "insight.code.4xx",
+			"description": "Percentage of responses with status code 4xx",
+			"statistic": "96"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://api:3000",
+			"key": "insight.code.2xx",
+			"description": "Percentage of responses with status code 2xx",
+			"statistic": "3"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://api:3000",
+			"key": "insight.endpoint.ctype.application/json",
+			"description": "Percentage of endpoints with content type application/json",
+			"statistic": "98"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://api:3000",
+			"key": "insight.endpoint.ctype.text/html",
+			"description": "Percentage of endpoints with content type text/html",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://api:3000",
+			"key": "insight.endpoint.method.DELETE",
+			"description": "Percentage of endpoints with method DELETE",
+			"statistic": "7"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://api:3000",
+			"key": "insight.endpoint.method.GET",
+			"description": "Percentage of endpoints with method GET",
+			"statistic": "56"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://api:3000",
+			"key": "insight.endpoint.method.PATCH",
+			"description": "Percentage of endpoints with method PATCH",
+			"statistic": "5"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://api:3000",
+			"key": "insight.endpoint.method.POST",
+			"description": "Percentage of endpoints with method POST",
+			"statistic": "30"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://api:3000",
+			"key": "insight.endpoint.total",
+			"description": "Count of total endpoints",
+			"statistic": "154"
+		}
+	],
+	"site":[ 
+		{
+			"@name": "http://api:3000",
+			"@host": "api",
+			"@port": "3000",
+			"@ssl": "false",
+			"alerts": [ 
+				{
+					"pluginid": "100001",
+					"alertRef": "100001",
+					"alert": "Unexpected Content-Type was returned",
+					"name": "Unexpected Content-Type was returned",
+					"riskcode": "1",
+					"confidence": "3",
+					"riskdesc": "Low (High)",
+					"desc": "<p>A Content-Type of text/html was returned by the server.</p><p>This is not one of the types expected to be returned by an API.</p><p>Raised by the 'Alert on Unexpected Content Types' script</p>",
+					"instances":[ 
+						{
+							"id": "494",
+							"uri": "http://api:3000/api/docs",
+							"nodeName": "http:\/\/api:3000\/api\/docs",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "8171",
+							"uri": "http://api:3000/api/docs/",
+							"nodeName": "http:\/\/api:3000\/api\/docs\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						}
+					],
+					"count": "2",
+					"systemic": false,
+					"solution": "",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "536"
+				},
+				{
+					"pluginid": "100000",
+					"alertRef": "100000-1",
+					"alert": "A Client Error response code was returned by the server",
+					"name": "A Client Error response code was returned by the server",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>A response code of 400 was returned by the server.</p><p>This may indicate that the application is failing to handle unexpected input correctly.</p><p>Raised by the 'Alert on HTTP Response Code Error' script</p>",
+					"instances":[ 
+						{
+							"id": "3",
+							"uri": "http://api:3000/api/v1/customers/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/id",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8137",
+							"uri": "http://api:3000/api/v1/customers/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/id\/",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "30",
+							"uri": "http://api:3000/api/v1/orders/id/parts/itemId",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/parts\/itemId",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8145",
+							"uri": "http://api:3000/api/v1/orders/id/parts/itemId/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/parts\/itemId\/",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "28",
+							"uri": "http://api:3000/api/v1/orders/id/services/itemId",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services\/itemId",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8146",
+							"uri": "http://api:3000/api/v1/orders/id/services/itemId/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services\/itemId\/",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "18",
+							"uri": "http://api:3000/api/v1/parts/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8160",
+							"uri": "http://api:3000/api/v1/parts/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "13",
+							"uri": "http://api:3000/api/v1/services/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/services\/id",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8157",
+							"uri": "http://api:3000/api/v1/services/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/services\/id\/",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "9",
+							"uri": "http://api:3000/api/v1/vehicles/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/vehicles\/id",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8161",
+							"uri": "http://api:3000/api/v1/vehicles/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/vehicles\/id\/",
+							"method": "DELETE",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "486",
+							"uri": "http://api:3000",
+							"nodeName": "http:\/\/api:3000",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8166",
+							"uri": "http://api:3000/",
+							"nodeName": "http:\/\/api:3000\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "41",
+							"uri": "http://api:3000/8599607535738638102",
+							"nodeName": "http:\/\/api:3000\/8599607535738638102",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "490",
+							"uri": "http://api:3000/api",
+							"nodeName": "http:\/\/api:3000\/api",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8167",
+							"uri": "http://api:3000/api/",
+							"nodeName": "http:\/\/api:3000\/api\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "42",
+							"uri": "http://api:3000/api/7536795147430714056",
+							"nodeName": "http:\/\/api:3000\/api\/7536795147430714056",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "43",
+							"uri": "http://api:3000/api/docs/7367042665915533389",
+							"nodeName": "http:\/\/api:3000\/api\/docs\/7367042665915533389",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8169",
+							"uri": "http://api:3000/api/docs/json/",
+							"nodeName": "http:\/\/api:3000\/api\/docs\/json\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "498",
+							"uri": "http://api:3000/api/v1",
+							"nodeName": "http:\/\/api:3000\/api\/v1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8172",
+							"uri": "http://api:3000/api/v1/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "44",
+							"uri": "http://api:3000/api/v1/3342371727553810189",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/3342371727553810189",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "502",
+							"uri": "http://api:3000/api/v1/auth",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/auth",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8174",
+							"uri": "http://api:3000/api/v1/auth/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/auth\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "45",
+							"uri": "http://api:3000/api/v1/auth/564314190282422146",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/auth\/564314190282422146",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "9232",
+							"uri": "http://api:3000/api/v1/auth/actuator/health",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/auth\/actuator\/health",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8175",
+							"uri": "http://api:3000/api/v1/auth/me/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/auth\/me\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1",
+							"uri": "http://api:3000/api/v1/customers?limite=limite&deslocamento=deslocamento&documento=documento&nome=nome&ativo=",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers (ativo,deslocamento,documento,limite,nome)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8176",
+							"uri": "http://api:3000/api/v1/customers/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "46",
+							"uri": "http://api:3000/api/v1/customers/1453707596028768021",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/1453707596028768021",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "2",
+							"uri": "http://api:3000/api/v1/customers/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/id",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8177",
+							"uri": "http://api:3000/api/v1/customers/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/id\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "47",
+							"uri": "http://api:3000/api/v1/customers/id/2521497393017842039",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/id\/2521497393017842039",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8179",
+							"uri": "http://api:3000/api/v1/health/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/health\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "518",
+							"uri": "http://api:3000/api/v1/me",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/me",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8181",
+							"uri": "http://api:3000/api/v1/me/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/me\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "48",
+							"uri": "http://api:3000/api/v1/me/5901839243752117248",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/me\/5901839243752117248",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "524",
+							"uri": "http://api:3000/api/v1/me/orders",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/me\/orders",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "403",
+							"otherinfo": ""
+						},
+						{
+							"id": "39",
+							"uri": "http://api:3000/api/v1/me/orders?limite=limite&deslocamento=deslocamento",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/me\/orders (deslocamento,limite)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8183",
+							"uri": "http://api:3000/api/v1/me/orders/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/me\/orders\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "49",
+							"uri": "http://api:3000/api/v1/me/orders/1958221193163886096",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/me\/orders\/1958221193163886096",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "40",
+							"uri": "http://api:3000/api/v1/me/orders/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/me\/orders\/id",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8184",
+							"uri": "http://api:3000/api/v1/me/orders/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/me\/orders\/id\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "535",
+							"uri": "http://api:3000/api/v1/metrics",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/metrics",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8187",
+							"uri": "http://api:3000/api/v1/metrics/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/metrics\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "50",
+							"uri": "http://api:3000/api/v1/metrics/5351743529258804087",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/metrics\/5351743529258804087",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "9197",
+							"uri": "http://api:3000/api/v1/metrics/execution-time?=&ate=2026-11-01T00%3A00%3A00-03%3A00",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/metrics\/execution-time (ate)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "544",
+							"uri": "http://api:3000/api/v1/metrics/execution-time?de=http%3A%2F%2Fwww.google.com%2F&ate=2026-11-01T00%3A00%3A00-03%3A00",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/metrics\/execution-time (ate,de)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "9213",
+							"uri": "http://api:3000/api/v1/metrics/execution-time?de=2026-10-01T00%3A00%3A00-03%3A00&=",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/metrics\/execution-time (de)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8188",
+							"uri": "http://api:3000/api/v1/metrics/execution-time/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/metrics\/execution-time\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "23",
+							"uri": "http://api:3000/api/v1/orders?limite=limite&deslocamento=deslocamento&status=&clienteId=clienteId",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders (clienteId,deslocamento,limite,status)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8189",
+							"uri": "http://api:3000/api/v1/orders/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "51",
+							"uri": "http://api:3000/api/v1/orders/6340135442825142013",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/6340135442825142013",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "25",
+							"uri": "http://api:3000/api/v1/orders/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8190",
+							"uri": "http://api:3000/api/v1/orders/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "52",
+							"uri": "http://api:3000/api/v1/orders/id/7716594571482663027",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/7716594571482663027",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "562",
+							"uri": "http://api:3000/api/v1/orders/id/parts",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/parts",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8193",
+							"uri": "http://api:3000/api/v1/orders/id/parts/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/parts\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "53",
+							"uri": "http://api:3000/api/v1/orders/id/parts/4064288655097189839",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/parts\/4064288655097189839",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "570",
+							"uri": "http://api:3000/api/v1/orders/id/services",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8194",
+							"uri": "http://api:3000/api/v1/orders/id/services/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "54",
+							"uri": "http://api:3000/api/v1/orders/id/services/1382919134617979340",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services\/1382919134617979340",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "578",
+							"uri": "http://api:3000/api/v1/orders/id/services/itemId",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services\/itemId",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8196",
+							"uri": "http://api:3000/api/v1/orders/id/services/itemId/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services\/itemId\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "55",
+							"uri": "http://api:3000/api/v1/orders/id/services/itemId/1166189044117499857",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services\/itemId\/1166189044117499857",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "15",
+							"uri": "http://api:3000/api/v1/parts?limite=limite&deslocamento=deslocamento&tipo=&ativo=",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts (ativo,deslocamento,limite,tipo)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8199",
+							"uri": "http://api:3000/api/v1/parts/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "56",
+							"uri": "http://api:3000/api/v1/parts/7296147381319664519",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/7296147381319664519",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "17",
+							"uri": "http://api:3000/api/v1/parts/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8198",
+							"uri": "http://api:3000/api/v1/parts/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "57",
+							"uri": "http://api:3000/api/v1/parts/id/7888152565788955516",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/7888152565788955516",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "602",
+							"uri": "http://api:3000/api/v1/parts/id/movements",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/movements",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "20",
+							"uri": "http://api:3000/api/v1/parts/id/movements?limite=limite&deslocamento=deslocamento",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/movements (deslocamento,limite)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8201",
+							"uri": "http://api:3000/api/v1/parts/id/movements/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/movements\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "58",
+							"uri": "http://api:3000/api/v1/parts/id/movements/5333879001423907351",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/movements\/5333879001423907351",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "608",
+							"uri": "http://api:3000/api/v1/parts/id/movements/movimentoId",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/movements\/movimentoId",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8203",
+							"uri": "http://api:3000/api/v1/parts/id/movements/movimentoId/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/movements\/movimentoId\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "59",
+							"uri": "http://api:3000/api/v1/parts/id/movements/movimentoId/466627928282028774",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/movements\/movimentoId\/466627928282028774",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "617",
+							"uri": "http://api:3000/api/v1/quotes",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/quotes",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8207",
+							"uri": "http://api:3000/api/v1/quotes/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/quotes\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "60",
+							"uri": "http://api:3000/api/v1/quotes/9010575013579959638",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/quotes\/9010575013579959638",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "633",
+							"uri": "http://api:3000/api/v1/quotes/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/quotes\/id",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8209",
+							"uri": "http://api:3000/api/v1/quotes/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/quotes\/id\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "61",
+							"uri": "http://api:3000/api/v1/quotes/id/1419886219895741909",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/quotes\/id\/1419886219895741909",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "11",
+							"uri": "http://api:3000/api/v1/services?limite=limite&deslocamento=deslocamento&ativo=",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/services (ativo,deslocamento,limite)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8211",
+							"uri": "http://api:3000/api/v1/services/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/services\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "62",
+							"uri": "http://api:3000/api/v1/services/4605089042107395906",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/services\/4605089042107395906",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "12",
+							"uri": "http://api:3000/api/v1/services/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/services\/id",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8210",
+							"uri": "http://api:3000/api/v1/services/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/services\/id\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "6",
+							"uri": "http://api:3000/api/v1/vehicles?limite=limite&deslocamento=deslocamento&clienteId=clienteId&placa=placa&ativo=",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/vehicles (ativo,clienteId,deslocamento,limite,placa)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8213",
+							"uri": "http://api:3000/api/v1/vehicles/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/vehicles\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "63",
+							"uri": "http://api:3000/api/v1/vehicles/8744720718626762466",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/vehicles\/8744720718626762466",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8",
+							"uri": "http://api:3000/api/v1/vehicles/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/vehicles\/id",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8214",
+							"uri": "http://api:3000/api/v1/vehicles/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/vehicles\/id\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "4",
+							"uri": "http://api:3000/api/v1/customers/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/id ()({nome,email,telefone,ativo})",
+							"method": "PATCH",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8135",
+							"uri": "http://api:3000/api/v1/customers/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/id\/ ()({nome,email,telefone,ativo})",
+							"method": "PATCH",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "19",
+							"uri": "http://api:3000/api/v1/parts/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id ()({nome,precoCentavos,ativo})",
+							"method": "PATCH",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8149",
+							"uri": "http://api:3000/api/v1/parts/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/ ()({nome,precoCentavos,ativo})",
+							"method": "PATCH",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "14",
+							"uri": "http://api:3000/api/v1/services/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/services\/id ()({nome,descricao,precoCentavos,ativo})",
+							"method": "PATCH",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8158",
+							"uri": "http://api:3000/api/v1/services/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/services\/id\/ ()({nome,descricao,precoCentavos,ativo})",
+							"method": "PATCH",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "10",
+							"uri": "http://api:3000/api/v1/vehicles/id",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/vehicles\/id ()({clienteId,marca,modelo,ano,ativo})",
+							"method": "PATCH",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8162",
+							"uri": "http://api:3000/api/v1/vehicles/id/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/vehicles\/id\/ ()({clienteId,marca,modelo,ano,ativo})",
+							"method": "PATCH",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "66",
+							"uri": "http://api:3000/api/v1/auth/login",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/auth\/login ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "0",
+							"uri": "http://api:3000/api/v1/auth/login",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/auth\/login ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "8134",
+							"uri": "http://api:3000/api/v1/auth/login/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/auth\/login\/ ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "85",
+							"uri": "http://api:3000/api/v1/customers",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers ()({documento,nome,email,telefone})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "177",
+							"uri": "http://api:3000/api/v1/customers",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers ()({documento,nome,email,telefone})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "409",
+							"otherinfo": ""
+						},
+						{
+							"id": "8140",
+							"uri": "http://api:3000/api/v1/customers/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/ ()({documento,nome,email,telefone})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "5",
+							"uri": "http://api:3000/api/v1/customers/id/user",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/id\/user ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8136",
+							"uri": "http://api:3000/api/v1/customers/id/user/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers\/id\/user\/ ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "24",
+							"uri": "http://api:3000/api/v1/orders",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders ()({clienteId,veiculoId,solicitacao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8151",
+							"uri": "http://api:3000/api/v1/orders/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/ ()({clienteId,veiculoId,solicitacao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "35",
+							"uri": "http://api:3000/api/v1/orders/id/consumptions",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/consumptions ()({itemOrcamentoId})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8143",
+							"uri": "http://api:3000/api/v1/orders/id/consumptions/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/consumptions\/ ()({itemOrcamentoId})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "38",
+							"uri": "http://api:3000/api/v1/orders/id/deliver",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/deliver ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8142",
+							"uri": "http://api:3000/api/v1/orders/id/deliver/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/deliver\/ ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "26",
+							"uri": "http://api:3000/api/v1/orders/id/diagnosis",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/diagnosis ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8138",
+							"uri": "http://api:3000/api/v1/orders/id/diagnosis/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/diagnosis\/ ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "37",
+							"uri": "http://api:3000/api/v1/orders/id/finish",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/finish ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8139",
+							"uri": "http://api:3000/api/v1/orders/id/finish/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/finish\/ ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "29",
+							"uri": "http://api:3000/api/v1/orders/id/parts",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/parts ()({pecaId,quantidade})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8147",
+							"uri": "http://api:3000/api/v1/orders/id/parts/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/parts\/ ()({pecaId,quantidade})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "31",
+							"uri": "http://api:3000/api/v1/orders/id/quotes",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/quotes ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8144",
+							"uri": "http://api:3000/api/v1/orders/id/quotes/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/quotes\/ ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "32",
+							"uri": "http://api:3000/api/v1/orders/id/reopen",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/reopen ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8141",
+							"uri": "http://api:3000/api/v1/orders/id/reopen/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/reopen\/ ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "27",
+							"uri": "http://api:3000/api/v1/orders/id/services",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services ()({servicoId,quantidade})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8152",
+							"uri": "http://api:3000/api/v1/orders/id/services/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services\/ ()({servicoId,quantidade})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "36",
+							"uri": "http://api:3000/api/v1/orders/id/services/itemId/complete",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services\/itemId\/complete",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8148",
+							"uri": "http://api:3000/api/v1/orders/id/services/itemId/complete/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/services\/itemId\/complete\/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "34",
+							"uri": "http://api:3000/api/v1/orders/id/start",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/start ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8150",
+							"uri": "http://api:3000/api/v1/orders/id/start/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/orders\/id\/start\/ ()({versao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "16",
+							"uri": "http://api:3000/api/v1/parts",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts ()({sku,nome,tipo,unidade,precoCentavos})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8155",
+							"uri": "http://api:3000/api/v1/parts/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/ ()({sku,nome,tipo,unidade,precoCentavos})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "21",
+							"uri": "http://api:3000/api/v1/parts/id/movements",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/movements ()({tipo,quantidade,observacao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8156",
+							"uri": "http://api:3000/api/v1/parts/id/movements/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/movements\/ ()({tipo,quantidade,observacao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "22",
+							"uri": "http://api:3000/api/v1/parts/id/movements/movimentoId/reversal",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/movements\/movimentoId\/reversal ()({observacao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8153",
+							"uri": "http://api:3000/api/v1/parts/id/movements/movimentoId/reversal/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/parts\/id\/movements\/movimentoId\/reversal\/ ()({observacao})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "33",
+							"uri": "http://api:3000/api/v1/quotes/id/decision",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/quotes\/id\/decision ()({decisao,motivo})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8154",
+							"uri": "http://api:3000/api/v1/quotes/id/decision/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/quotes\/id\/decision\/ ()({decisao,motivo})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "666",
+							"uri": "http://api:3000/api/v1/services",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/services ()({nome,descricao,precoCentavos})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8159",
+							"uri": "http://api:3000/api/v1/services/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/services\/ ()({nome,descricao,precoCentavos})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "7",
+							"uri": "http://api:3000/api/v1/vehicles",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/vehicles ()({clienteId,placa,marca,modelo,ano})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "8163",
+							"uri": "http://api:3000/api/v1/vehicles/",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/vehicles\/ ()({clienteId,placa,marca,modelo,ano})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "6071",
+							"uri": "http://api:3000/computeMetadata/v1/",
+							"nodeName": "http:\/\/api:3000\/computeMetadata\/v1\/ ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "6060",
+							"uri": "http://api:3000/latest/meta-data/",
+							"nodeName": "http:\/\/api:3000\/latest\/meta-data\/ ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "6131",
+							"uri": "http://api:3000/metadata/instance",
+							"nodeName": "http:\/\/api:3000\/metadata\/instance ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "6137",
+							"uri": "http://api:3000/metadata/v1",
+							"nodeName": "http:\/\/api:3000\/metadata\/v1 ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "6086",
+							"uri": "http://api:3000/opc/v1/instance/",
+							"nodeName": "http:\/\/api:3000\/opc\/v1\/instance\/ ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "6103",
+							"uri": "http://api:3000/opc/v2/instance/",
+							"nodeName": "http:\/\/api:3000\/opc\/v2\/instance\/ ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "6146",
+							"uri": "http://api:3000/openstack/latest/meta_data.json",
+							"nodeName": "http:\/\/api:3000\/openstack\/latest\/meta_data.json ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						}
+					],
+					"count": "152",
+					"systemic": false,
+					"solution": "",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "388",
+					"wascid": "20",
+					"sourceid": "14"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049-1",
+					"alert": "Non-Storable Content",
+					"name": "Non-Storable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
+					"instances":[ 
+						{
+							"id": "206",
+							"uri": "http://api:3000/api/v1/auth/me",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/auth\/me",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "203",
+							"uri": "http://api:3000/api/v1/customers?limite=limite&deslocamento=deslocamento&documento=documento&nome=nome&ativo=",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers (ativo,deslocamento,documento,limite,nome)",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "201",
+							"uri": "http://api:3000/api/v1/health",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/health",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "202",
+							"uri": "http://api:3000/api/v1/auth/login",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/auth\/login ()({email,senha})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "205",
+							"uri": "http://api:3000/api/v1/customers",
+							"nodeName": "http:\/\/api:3000\/api\/v1\/customers ()({documento,nome,email,telefone})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).</p>",
+					"otherinfo": "",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "9"
+				}
+			]
+		}
+	],
+	"sequences":[
+	]
+
+}

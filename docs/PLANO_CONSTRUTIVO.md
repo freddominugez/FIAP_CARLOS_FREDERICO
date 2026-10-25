@@ -201,7 +201,7 @@ Calendário com D+0 em 25/10/2026. Cada etapa só fecha quando o critério de sa
 | D+4 ✅ | 29/10 | OS e orçamento | abertura, itens, cálculo, publicação com preço congelado e versão, histórico de status |
 | D+5 ✅ | 30/10 | Aprovação e estoque | reserva atômica, rejeição, reabertura, idempotência. Teste com duas transações simultâneas pela última peça aprova só uma |
 | D+6 ✅ | 31/10 | Execução e entrega | consumo, finalização, entrega, consulta do cliente, tempo médio. Cliente A recebe 404 na OS do cliente B |
-| D+7 | 01/11 | Qualidade | cobertura ≥ 80% em `domain` e `application`, `npm audit`, SonarCloud, OWASP ZAP, Trivy e Gitleaks rodados e achados tratados. Relatórios com hash em `docs/evidencias/` |
+| D+7 ✅ | 01/11 | Qualidade | cobertura ≥ 80% em `domain` e `application`, `npm audit`, SonarQube (no lugar do SonarCloud), OWASP ZAP, Trivy e Gitleaks rodados e achados tratados. Relatórios com hash em `docs/evidencias/` |
 | D+8 | 02/11 | Documentação e vídeo | exportação DDD, README validado em máquina limpa, Swagger publicado, vídeo gravado e publicado |
 | D+9 | 03/11 | Fechamento | PDF oficial com identificação, links testados em janela anônima, tag `v1.0-fase1`, submissão na FIAP até 23h59 |
 

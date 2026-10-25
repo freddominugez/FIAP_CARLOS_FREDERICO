@@ -1,6 +1,6 @@
 import { ValidationError } from '../shared/errors.js';
 
-const PLACA = /^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/;
+const PLACA = /^[A-Z]{3}\d[A-Z\d]\d{2}$/;
 
 /**
  * Placa no padrão antigo (AAA9999) ou Mercosul (AAA9A99), em maiúsculas e sem hífen (RN02).

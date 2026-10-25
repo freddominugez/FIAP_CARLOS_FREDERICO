@@ -13,5 +13,5 @@ export default tseslint.config(
   },
   { files: ['src/main/seed.ts'], rules: { 'no-console': 'off' } },
   // scripts de verificação rodam direto no Node e escrevem o resultado no terminal
-  { files: ['scripts/**/*.mjs'], languageOptions: { globals: { console: 'readonly' } }, rules: { 'no-console': 'off' } },
+  { files: ['scripts/**/*.mjs'], languageOptions: { globals: { console: 'readonly', process: 'readonly', fetch: 'readonly' } }, rules: { 'no-console': 'off' } },
 );

@@ -57,8 +57,8 @@ export class MovimentarEstoque {
       const nota = textoOpcional(observacao);
       if (!nota) throw new ValidationError('OBSERVACAO_OBRIGATORIA', 'Estorno exige observação com o motivo');
       const [peca] = await estoque.bloquearPecas([pecaId]);
-      const original = peca && (await estoque.buscarMovimento(movimentoId));
-      if (!original || original.pecaId !== pecaId) {
+      const original = await estoque.buscarMovimento(movimentoId);
+      if (!peca || original?.pecaId !== pecaId) {
         throw new NotFoundError('MOVIMENTO_NAO_ENCONTRADO', 'Movimento não encontrado nesta peça');
       }
       if (await estoque.jaEstornado(movimentoId)) {

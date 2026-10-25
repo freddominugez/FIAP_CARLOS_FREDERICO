@@ -21,8 +21,8 @@ const PESOS_CNPJ_2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 export function criarDocumento(entrada: string): Documento {
   const valor = entrada.replace(/[\s./-]/g, '').toUpperCase();
 
-  if (/^[0-9]{11}$/.test(valor) && cpfValido(valor)) return { valor, tipo: 'CPF' };
-  if (/^[0-9A-Z]{12}[0-9]{2}$/.test(valor) && cnpjValido(valor)) return { valor, tipo: 'CNPJ' };
+  if (/^\d{11}$/.test(valor) && cpfValido(valor)) return { valor, tipo: 'CPF' };
+  if (/^[\dA-Z]{12}\d{2}$/.test(valor) && cnpjValido(valor)) return { valor, tipo: 'CNPJ' };
 
   throw new ValidationError('DOCUMENTO_INVALIDO', 'CPF ou CNPJ inválido');
 }
@@ -40,7 +40,7 @@ function dvCpf(digitos: number[], pesos: number[]): number {
 
 function cnpjValido(cnpj: string): boolean {
   if (/^(\d)\1{13}$/.test(cnpj)) return false;
-  const valores = [...cnpj].map((c) => c.charCodeAt(0) - 48);
+  const valores = [...cnpj].map((c) => c.codePointAt(0)! - 48);
   return dvCnpj(valores, PESOS_CNPJ_1) === valores[12] && dvCnpj(valores, PESOS_CNPJ_2) === valores[13];
 }
 

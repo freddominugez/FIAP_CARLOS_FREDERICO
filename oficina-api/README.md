@@ -168,6 +168,16 @@ Dois cuidados que o deploy exigiu, explicados no ADR 0005: o `overrides` de `con
 
 O seed de demonstração não roda na Vercel. Os 3 usuários de demonstração já foram criados no Supabase. Para recriar, rodar `npm run seed` localmente com a URL do modo sessão e `DATABASE_SSL_CA`.
 
+## Qualidade e segurança
+
+Relatórios da D+7 em [docs/evidencias](../docs/evidencias/README.md), com SHA-256 de cada arquivo: testes, cobertura, npm audit, Gitleaks, Trivy, OWASP ZAP e SonarQube. Resumo: 0 vulnerabilidades abertas, quality gate do SonarQube aprovado, cobertura de 100% das linhas em domínio e aplicação. Os achados e o tratamento de cada um estão no mesmo arquivo.
+
+Proteções na borda HTTP que saíram dessas varreduras:
+
+- caractere nulo no corpo ou na URL devolve 400, em vez de chegar ao banco;
+- cabeçalhos `X-Content-Type-Options`, `Cross-Origin-Resource-Policy`, `X-Frame-Options`, `Referrer-Policy` e `Cache-Control: no-store` nas respostas da API;
+- a imagem final não tem npm nem corepack, só `node`.
+
 ## Testes
 
 ```bash

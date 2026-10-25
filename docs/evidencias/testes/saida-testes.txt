@@ -1,0 +1,70 @@
+
+ RUN  v5.0.5 /app
+      Coverage enabled with v8
+
+ ✓ tests/unit/cadastros.test.ts (15 tests) 16ms
+ ✓ tests/integration/autenticacao.test.ts (13 tests) 1755ms
+ ✓ tests/unit/estoque.test.ts (14 tests) 8ms
+ ✓ tests/integration/cadastros.test.ts (18 tests) 2039ms
+ ✓ tests/integration/ordens.test.ts (18 tests) 2074ms
+ ✓ tests/unit/orcamento.test.ts (19 tests) 7ms
+ ✓ tests/unit/execucao.test.ts (10 tests) 10ms
+ ✓ tests/unit/documento-placa.test.ts (27 tests) 7ms
+ ✓ tests/unit/ordem-servico.test.ts (10 tests) 8ms
+ ✓ tests/unit/autenticar.test.ts (5 tests) 9ms
+ ✓ tests/unit/config.test.ts (7 tests) 6ms
+ ✓ tests/integration/execucao-entrega.test.ts (13 tests) 2499ms
+ ✓ tests/integration/aprovacao-estoque.test.ts (15 tests) 2623ms
+   ✓ aprovação do orçamento e estoque (15)
+     ✓ decisão do cliente (6)
+       ✓ aprovação reserva todas as peças e não muda o status da OS 323ms
+ ✓ tests/integration/schema.test.ts (5 tests) 334ms
+
+ Test Files  14 passed (14)
+      Tests  189 passed (189)
+   Start at  22:17:08
+   Duration  4.08s (tests 69%, import 21%, transform 9%, worker 1%)
+
+JUNIT report written to /app/coverage/vitest-junit.xml
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   99.78 |    97.59 |     100 |     100 |                   
+ application/ports |       0 |        0 |       0 |       0 |                   
+  atendimento.ts   |       0 |        0 |       0 |       0 |                   
+  cadastros.ts     |       0 |        0 |       0 |       0 |                   
+  estoque.ts       |       0 |        0 |       0 |       0 |                   
+  ...repository.ts |       0 |        0 |       0 |       0 |                   
+ ...es/atendimento |   99.47 |    95.77 |     100 |     100 |                   
+  ...ta-cliente.ts |     100 |      100 |     100 |     100 |                   
+  ...-orcamento.ts |     100 |      100 |     100 |     100 |                   
+  execucao.ts      |   98.18 |       80 |     100 |     100 | 68-69             
+  idempotencia.ts  |     100 |      100 |     100 |     100 |                   
+  ordens.ts        |     100 |     97.5 |     100 |     100 | 186               
+ ...ases/cadastros |     100 |      100 |     100 |     100 |                   
+  catalogo.ts      |     100 |      100 |     100 |     100 |                   
+  clientes.ts      |     100 |      100 |     100 |     100 |                   
+  veiculos.ts      |     100 |      100 |     100 |     100 |                   
+ ...-cases/estoque |     100 |      100 |     100 |     100 |                   
+  movimentar.ts    |     100 |      100 |     100 |     100 |                   
+  reservas.ts      |     100 |      100 |     100 |     100 |                   
+ ...ses/identidade |     100 |      100 |     100 |     100 |                   
+  autenticar.ts    |     100 |      100 |     100 |     100 |                   
+ ...in/atendimento |     100 |      100 |     100 |     100 |                   
+  decisao.ts       |     100 |      100 |     100 |     100 |                   
+  execucao.ts      |     100 |      100 |     100 |     100 |                   
+  orcamento.ts     |     100 |      100 |     100 |     100 |                   
+  ordem-servico.ts |     100 |      100 |     100 |     100 |                   
+ domain/cadastros  |     100 |       90 |     100 |     100 |                   
+  documento.ts     |     100 |    86.36 |     100 |     100 | 38,49-53          
+  veiculo.ts       |     100 |      100 |     100 |     100 |                   
+ domain/estoque    |     100 |      100 |     100 |     100 |                   
+  estoque.ts       |     100 |      100 |     100 |     100 |                   
+ domain/identidade |     100 |      100 |     100 |     100 |                   
+  perfil.ts        |     100 |      100 |     100 |     100 |                   
+ domain/shared     |     100 |      100 |     100 |     100 |                   
+  errors.ts        |     100 |      100 |     100 |     100 |                   
+  texto.ts         |     100 |      100 |     100 |     100 |                   
+-------------------|---------|----------|---------|---------|-------------------
+exit=0

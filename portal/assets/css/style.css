@@ -240,6 +240,12 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: .9rem; color: var(--muted); }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
 .legend i { display: inline-block; width: 16px; height: 16px; border-radius: 3px; border: 1px solid rgba(0,0,0,.15); }
+.legend i.evento { background: #f59a3c; }
+.legend i.comando { background: #5aa6e6; }
+.legend i.ator { background: #f7e15a; }
+.legend i.politica { background: #c9b3f0; }
+.legend i.leitura { background: #b8e6b0; }
+.legend i.externo { background: #f2a7c3; }
 .legend i.diamond { transform: rotate(45deg) scale(.8); }
 .legend i.bar { width: 3px; border-radius: 0; background: var(--text); border: 0; }
 .card h3 .tag { margin-left: 6px; vertical-align: 2px; }

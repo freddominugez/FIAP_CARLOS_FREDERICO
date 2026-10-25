@@ -43,7 +43,7 @@ export class DecidirOrcamento {
       // OS de outro cliente responde como inexistente, para não revelar que ela existe (BOLA)
       const referencia = await atendimento.buscarOrcamento(orcamentoId);
       const os = referencia && (await atendimento.buscarOS(referencia.osId, { bloquear: true }));
-      if (!os || os.clienteId !== usuario.clienteId) {
+      if (os?.clienteId !== usuario.clienteId) {
         throw new NotFoundError('ORCAMENTO_NAO_ENCONTRADO', 'Orçamento não encontrado');
       }
 

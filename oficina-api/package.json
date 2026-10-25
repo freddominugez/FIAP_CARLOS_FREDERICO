@@ -1,6 +1,6 @@
 {
   "name": "oficina-api",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "private": true,
   "description": "Back-end da oficina mecânica, Tech Challenge Fase 1 FIAP SOAT",
   "type": "module",

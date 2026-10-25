@@ -28,7 +28,7 @@ export function ListaSchema<T extends TSchema>(item: T) {
 
 // o repositório devolve Date e o serializador escreve ISO 8601
 const Data = Type.Unsafe<Date>({ type: 'string', format: 'date-time' });
-const Centavos = Type.Integer({ minimum: 0, maximum: 100_000_000_00, description: 'valor em centavos' });
+const Centavos = Type.Integer({ minimum: 0, maximum: 10_000_000_000, description: 'valor em centavos' });
 const TextoCurto = (max: number) => Type.String({ minLength: 1, maxLength: max });
 const Nulavel = <T extends TSchema>(t: T) => Type.Union([t, Type.Null()]);
 

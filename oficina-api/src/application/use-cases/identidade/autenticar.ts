@@ -20,7 +20,7 @@ export class Autenticar {
 
   async executar(email: string, senha: string): Promise<Identidade> {
     const usuario = await this.usuarios.buscarPorEmail(email.trim().toLowerCase());
-    if (!usuario || !usuario.ativo) {
+    if (!usuario?.ativo) {
       throw new UnauthorizedError('CREDENCIAIS_INVALIDAS', CREDENCIAIS_INVALIDAS);
     }
     if (!(await this.senhas.confere(senha, usuario.senhaHash))) {

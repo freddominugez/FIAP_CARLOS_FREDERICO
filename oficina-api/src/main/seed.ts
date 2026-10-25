@@ -12,7 +12,7 @@ const usuarios = [
 
 const url = process.env.DATABASE_URL;
 if (!url) throw new Error('DATABASE_URL ausente');
-const db = criarPool(url, 1, process.env.DATABASE_SSL_CA?.replace(/\\n/g, '\n') || undefined);
+const db = criarPool(url, 1, process.env.DATABASE_SSL_CA?.replaceAll(String.raw`\n`, '\n') || undefined);
 
 try {
   const hash = await gerarHash(SENHA_DEMO);

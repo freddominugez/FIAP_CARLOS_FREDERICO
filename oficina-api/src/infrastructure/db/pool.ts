@@ -4,7 +4,7 @@ export type Db = pg.Pool;
 export type Tx = pg.PoolClient;
 
 // bigint (centavos) vem do pg como string. Converte para number, seguro até 2^53.
-pg.types.setTypeParser(pg.types.builtins.INT8, (v) => Number(v));
+pg.types.setTypeParser(pg.types.builtins.INT8, Number);
 
 /**
  * Com `ca`, a conexão usa TLS e confere o certificado do servidor contra essa CA.

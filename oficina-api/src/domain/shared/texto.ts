@@ -10,5 +10,5 @@ export function textoObrigatorio(valor: string, campo: string): string {
 /** Texto opcional: vazio vira null. */
 export function textoOpcional(valor: string | null | undefined): string | null {
   const limpo = valor?.trim();
-  return limpo ? limpo : null;
+  return limpo || null;
 }

@@ -1,10 +1,20 @@
-# Regras padrão do gitleaks, com exceção só para valores fictícios de exemplo e de teste.
+# Regras padrão do gitleaks, com exceções estreitas para falsos positivos conhecidos.
 [extend]
 useDefault = true
 
-[allowlist]
+[[allowlists]]
 description = "segredo de exemplo no .env.example e valores fixos dos testes"
 paths = [
   '''oficina-api/\.env\.example$''',
   '''oficina-api/tests/''',
+]
+
+[[allowlists]]
+# Sem filtro de pasta: com "paths" a exceção passou a ignorar a pasta inteira e deixou de
+# detectar uma chave AWS de controle. Só os dois padrões exatos ficam liberados.
+description = "relatórios da D+7: host api:3000 do compose nas URLs do ZAP e chaves de item do SonarQube"
+regexTarget = "match"
+regexes = [
+  '''api:3000''',
+  '''key":"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"''',
 ]

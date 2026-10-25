@@ -32,7 +32,7 @@ export function carregarConfig(env: NodeJS.ProcessEnv = process.env): Config {
     databaseUrl: obrigatoria('DATABASE_URL'),
     databasePoolMax: Number(env.DATABASE_POOL_MAX ?? 5),
     // painéis de variáveis às vezes gravam a quebra de linha como \n literal
-    databaseSslCa: env.DATABASE_SSL_CA?.replace(/\\n/g, '\n') || undefined,
+    databaseSslCa: env.DATABASE_SSL_CA?.replaceAll(String.raw`\n`, '\n') || undefined,
     jwt: {
       secret: obrigatoria('JWT_SECRET'),
       expiresIn: env.JWT_EXPIRES_IN ?? '1h',
@@ -55,7 +55,7 @@ export function carregarConfig(env: NodeJS.ProcessEnv = process.env): Config {
     throw new Error('Com DATABASE_SSL_CA, tire o sslmode da DATABASE_URL: ele substituiria a verificação');
   }
   if (!Number.isInteger(config.port) || !Number.isInteger(config.databasePoolMax)) {
-    throw new Error('PORT e DATABASE_POOL_MAX precisam ser inteiros');
+    throw new TypeError('PORT e DATABASE_POOL_MAX precisam ser inteiros');
   }
   return config;
 }

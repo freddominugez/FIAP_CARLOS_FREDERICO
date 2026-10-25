@@ -28,8 +28,8 @@ Formato de Arquitetura de Software aula 3: ID, descrição, caso de uso, critér
 | RNF02 | banco justificado | ADR do banco | | 0002 | |
 | RNF03 | REST documentado em OpenAPI | `/api/docs` acessível | T11 | | |
 | RNF04 | JWT nas rotas administrativas | 401 e 403 nos casos inválidos | T06 | 0003 | |
-| RNF05 | cobertura ≥ 80% em domínio e aplicação | threshold do Vitest falha o CI | CI | | |
+| RNF05 | cobertura ≥ 80% em domínio e aplicação | threshold do Vitest falha a suíte | coverage | | `docs/evidencias/cobertura/` (linhas 100%, ramos 97,6%) |
 | RNF06 | transação nos fluxos principais | rollback provado com banco real | T05 | 0002 | `tests/integration/aprovacao-estoque.test.ts` (falta de uma peça cancela todas) |
 | RNF07 | execução local simples | clone limpo e `docker compose up` | T11 | 0003 | |
-| RNF08 | sem vulnerabilidade alta aberta | npm audit, SonarCloud, ZAP, Trivy | CI | | |
+| RNF08 | sem vulnerabilidade alta aberta | npm audit, SonarQube, ZAP, Trivy, Gitleaks | D+7 | | `docs/evidencias/README.md` (0 abertas, achados tratados) |
 | RNF09 | logs sem dado pessoal | URL registrada sem query string, cabeçalho de autorização e senha mascarados | revisão | | logs do Compose conferidos na D+3 |

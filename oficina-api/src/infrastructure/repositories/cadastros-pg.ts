@@ -20,6 +20,11 @@ import { RepositorioPg, type Condicoes } from './repositorio-pg.js';
 
 type Linha = Record<string, unknown>;
 
+/** Escapa %, _ e \ para o texto valer literalmente dentro do ILIKE. */
+function escaparLike(texto: string): string {
+  return texto.replaceAll(/[%_\\]/g, String.raw`\$&`);
+}
+
 /** Monta WHERE só com os filtros informados. */
 function condicoes(pares: [string, unknown][]): Condicoes {
   const where: string[] = [];
@@ -64,7 +69,7 @@ export class ClientePgRepository extends RepositorioPg<Cliente, NovoCliente, Alt
   protected condicoes(f: FiltroCliente): Condicoes {
     return condicoes([
       ['document = ?', f.documento],
-      ['name ILIKE ?', f.nome === undefined ? undefined : `%${f.nome.replace(/[%_\\]/g, '\\$&')}%`],
+      ['name ILIKE ?', f.nome === undefined ? undefined : `%${escaparLike(f.nome)}%`],
       ['active = ?', f.ativo],
     ]);
   }

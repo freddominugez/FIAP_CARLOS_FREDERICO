@@ -17,7 +17,7 @@ export class ConsultarMinhasOrdens {
   detalhar(clienteId: string, id: string): Promise<DetalheOS> {
     return this.uow.executar(async ({ atendimento }) => {
       const os = await atendimento.buscarOS(id);
-      if (!os || os.clienteId !== clienteId) throw new NotFoundError('OS_NAO_ENCONTRADA', 'Ordem de serviço não encontrada');
+      if (os?.clienteId !== clienteId) throw new NotFoundError('OS_NAO_ENCONTRADA', 'Ordem de serviço não encontrada');
       return detalhar(atendimento, id);
     });
   }

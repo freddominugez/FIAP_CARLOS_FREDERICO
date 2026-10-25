@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="189" failures="0" errors="0" time="11.394022222">
+    <testsuite name="tests/integration/aprovacao-estoque.test.ts" timestamp="2026-10-25T22:17:12.990Z" hostname="1523d0186f11" tests="15" failures="0" errors="0" skipped="0" time="2.622778569">
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; movimentos manuais &gt; ADMIN registra entrada e ajuste com observação" time="0.057124596">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; movimentos manuais &gt; recusa ajuste maior que o saldo, peça fracionada e outros perfis" time="0.006081492">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; movimentos manuais &gt; mostra o extrato da peça" time="0.014763309">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; decisão do cliente &gt; aprovação reserva todas as peças e não muda o status da OS" time="0.323423449">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; decisão do cliente &gt; repetir a aprovação não reserva de novo e trocar a decisão dá 409" time="0.003786588">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; decisão do cliente &gt; cliente não decide orçamento de outro cliente: 404, sem revelar que existe" time="0.001559349">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; decisão do cliente &gt; falta de uma peça cancela a reserva de todas" time="0.063718859">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; decisão do cliente &gt; rejeição grava motivo e não reserva" time="0.050609492">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; decisão do cliente &gt; mesma Idempotency-Key com outra decisão dá 409" time="0.04176934">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; reabertura do diagnóstico &gt; invalida a versão aprovada e libera as reservas" time="0.046430058">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; reabertura do diagnóstico &gt; decisão sobre a versão invalidada dá 409 e a nova publicação vira versão 2" time="0.034083018">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; reabertura do diagnóstico &gt; orçamento só com serviços aprova e reabre sem movimentar estoque" time="0.047395353">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; reabertura do diagnóstico &gt; versão rejeitada continua rejeitada no histórico" time="0.026835441">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; concorrência &gt; duas OS disputando a última unidade: só uma aprova" time="0.089308886">
+        </testcase>
+        <testcase classname="tests/integration/aprovacao-estoque.test.ts" name="aprovação do orçamento e estoque &gt; concorrência &gt; peças pedidas em ordem inversa por duas OS não travam (sem deadlock)" time="0.088701491">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/integration/autenticacao.test.ts" timestamp="2026-10-25T22:17:12.992Z" hostname="1523d0186f11" tests="13" failures="0" errors="0" skipped="0" time="1.75480782">
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; devolve token com credenciais válidas, ignorando maiúsculas no e-mail" time="0.082022479">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; recusa senha errada, e-mail inexistente e usuário inativo com a mesma resposta" time="0.088296708">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; valida o corpo do login" time="0.001719651">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; trata JSON vazio como corpo ausente e barra prototype pollution" time="0.003780058">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; recusa caractere nulo no corpo e na URL com 400, sem chegar ao banco" time="0.002204603">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; envia cabeçalhos de segurança e proíbe cache na API" time="0.075355803">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; exige token em rota protegida" time="0.00257786">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; aceita o token emitido no login" time="0.158786822">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; recusa token adulterado" time="0.073383913">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; recusa token assinado com o mesmo segredo mas outro emissor" time="0.003602982">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; recusa token expirado" time="0.002609857">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; bloqueia perfil sem permissão com 403" time="0.146198009">
+        </testcase>
+        <testcase classname="tests/integration/autenticacao.test.ts" name="autenticação JWT &gt; responde health com banco ok e publica o OpenAPI" time="0.00352765">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/integration/cadastros.test.ts" timestamp="2026-10-25T22:17:12.993Z" hostname="1523d0186f11" tests="18" failures="0" errors="0" skipped="0" time="2.0390104">
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; clientes &gt; cadastra CPF e CNPJ alfanumérico normalizados" time="0.027449961">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; clientes &gt; recusa documento inválido com 400 e duplicado com 409" time="0.005092692">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; clientes &gt; recusa campo desconhecido e corpo vazio no PATCH" time="0.023185286">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; clientes &gt; lista com filtro por documento formatado, nome e paginação" time="0.009910847">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; clientes &gt; bloqueia técnico com 403 e sem token com 401" time="0.004876355">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; clientes &gt; devolve 404 para id inexistente e 400 para id malformado" time="0.004823867">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; acesso do cliente &gt; atendente cria o usuário CLIENTE, que entra e não acessa cadastros" time="0.277685492">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; acesso do cliente &gt; recusa e-mail já usado" time="0.117373437">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; veículos &gt; cadastra placa antiga e Mercosul normalizadas" time="0.0060264">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; veículos &gt; recusa placa inválida, ano fora da faixa e cliente inexistente" time="0.002297235">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; veículos &gt; recusa placa repetida entre ativos e libera depois da inativação" time="0.021265675">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; veículos &gt; exclui sem histórico e recusa com histórico (RN12)" time="0.067949542">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; catálogo &gt; só ADMIN escreve, atendente e técnico leem" time="0.019666453">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; catálogo &gt; recusa preço fracionado ou negativo" time="0.000826421">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; catálogo &gt; altera e exclui serviço" time="0.011081257">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; catálogo &gt; peça nasce com saldo zero e SKU único" time="0.059601468">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; catálogo &gt; recusa excluir peça com movimento de estoque" time="0.011891222">
+        </testcase>
+        <testcase classname="tests/integration/cadastros.test.ts" name="cadastros &gt; publica as rotas de cadastro no OpenAPI" time="0.028217873">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/integration/execucao-entrega.test.ts" timestamp="2026-10-25T22:17:12.995Z" hostname="1523d0186f11" tests="13" failures="0" errors="0" skipped="0" time="2.498931425">
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; início da execução &gt; bloqueia orçamento pendente ou rejeitado" time="0.263009727">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; início da execução &gt; inicia com orçamento aprovado e registra a data" time="0.164294034">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; consumo e serviços &gt; baixa a peça reservada uma única vez" time="0.053850062">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; consumo e serviços &gt; recusa consumir linha de serviço ou de outra OS" time="0.009453462">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; consumo e serviços &gt; não finaliza com serviço pendente" time="0.048312821">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; consumo e serviços &gt; finaliza e devolve ao estoque a peça reservada e não usada" time="0.045431326">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; consumo e serviços &gt; consumo depois da finalização dá 409" time="0.012830295">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; entrega &gt; só o atendente entrega, e o histórico tem os seis status" time="0.042881679">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; consulta do cliente &gt; lista só as próprias OS, sem dados internos" time="0.042430643">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; consulta do cliente &gt; cliente B recebe 404 na OS do cliente A, e a equipe não usa as rotas do cliente" time="0.005067578">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; estorno &gt; estorna o consumo uma vez e recusa movimento do fluxo" time="0.026297353">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; tempo médio de execução &gt; considera só OS finalizadas no período e informa a amostra" time="0.005093127">
+        </testcase>
+        <testcase classname="tests/integration/execucao-entrega.test.ts" name="execução, entrega, consulta do cliente e tempo médio &gt; tempo médio de execução &gt; sem amostra a média é null, e período inválido dá 400" time="0.002267556">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/integration/ordens.test.ts" timestamp="2026-10-25T22:17:12.997Z" hostname="1523d0186f11" tests="18" failures="0" errors="0" skipped="0" time="2.07399828">
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; abertura &gt; abre em RECEBIDA com número público, versão 1 e histórico" time="0.076798272">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; abertura &gt; repete a mesma OS com a mesma Idempotency-Key e recusa corpo diferente" time="0.044265907">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; abertura &gt; trata chamadas simultâneas com a mesma chave como uma só" time="0.063061093">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; abertura &gt; recusa veículo de outro cliente, solicitação em branco e perfil técnico" time="0.010812264">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; diagnóstico &gt; não aceita itens antes do diagnóstico" time="0.003674702">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; diagnóstico &gt; exige perfil técnico e a versão atual" time="0.071889962">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; diagnóstico &gt; não publica orçamento sem itens" time="0.004949334">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; diagnóstico &gt; inclui serviços, peças e insumos e calcula a estimativa em centavos" time="0.12163958">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; diagnóstico &gt; remove item e devolve 404 para item de outra OS" time="0.02837229">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; diagnóstico &gt; recusa item inativo no catálogo" time="0.012521838">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; publicação do orçamento &gt; recusa versão anterior à última mudança de item" time="0.003324121">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; publicação do orçamento &gt; publica a versão 1 com preços congelados e leva a OS para AGUARDANDO_APROVACAO" time="0.087596301">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; publicação do orçamento &gt; mantém o preço publicado quando o catálogo muda" time="0.010906197">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; publicação do orçamento &gt; bloqueia itens e nova publicação depois de publicado" time="0.005419002">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; publicação do orçamento &gt; recusa publicar com item que ficou inativo depois de incluído" time="0.024375685">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; publicação do orçamento &gt; publicações simultâneas na mesma versão: só uma passa" time="0.034985519">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; cadastros inativos e itens inexistentes &gt; não abre OS para veículo ou cliente inativo nem aceita item fora do catálogo" time="0.050264723">
+        </testcase>
+        <testcase classname="tests/integration/ordens.test.ts" name="ordens de serviço até a publicação do orçamento &gt; consulta &gt; lista por status e cliente e bloqueia CLIENTE" time="0.012704898">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/integration/schema.test.ts" timestamp="2026-10-25T22:17:12.999Z" hostname="1523d0186f11" tests="5" failures="0" errors="0" skipped="0" time="0.334339312">
+        <testcase classname="tests/integration/schema.test.ts" name="schema do banco &gt; impede reservado maior que físico (RN06)" time="0.014641738">
+        </testcase>
+        <testcase classname="tests/integration/schema.test.ts" name="schema do banco &gt; impede peça fracionada e aceita insumo fracionado" time="0.005556036">
+        </testcase>
+        <testcase classname="tests/integration/schema.test.ts" name="schema do banco &gt; aceita CNPJ alfanumérico e recusa documento fora do formato (RN01)" time="0.006967962">
+        </testcase>
+        <testcase classname="tests/integration/schema.test.ts" name="schema do banco &gt; impede alterar ou apagar movimento de estoque (RN07)" time="0.084776249">
+        </testcase>
+        <testcase classname="tests/integration/schema.test.ts" name="schema do banco &gt; exige cliente vinculado só para o perfil CLIENTE (RN11)" time="0.063540937">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/autenticar.test.ts" timestamp="2026-10-25T22:17:13.000Z" hostname="1523d0186f11" tests="5" failures="0" errors="0" skipped="0" time="0.008572367">
+        <testcase classname="tests/unit/autenticar.test.ts" name="Autenticar &gt; devolve a identidade com senha correta" time="0.003370121">
+        </testcase>
+        <testcase classname="tests/unit/autenticar.test.ts" name="Autenticar &gt; normaliza o e-mail antes de buscar" time="0.000151198">
+        </testcase>
+        <testcase classname="tests/unit/autenticar.test.ts" name="Autenticar &gt; recusa usuário inexistente com o mesmo erro" time="0.000702544">
+        </testcase>
+        <testcase classname="tests/unit/autenticar.test.ts" name="Autenticar &gt; recusa senha errada com o mesmo erro" time="0.000095442">
+        </testcase>
+        <testcase classname="tests/unit/autenticar.test.ts" name="Autenticar &gt; recusa usuário inativo com o mesmo erro" time="0.000103833">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/cadastros.test.ts" timestamp="2026-10-25T22:17:13.000Z" hostname="1523d0186f11" tests="15" failures="0" errors="0" skipped="0" time="0.015581113">
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarClientes &gt; normaliza documento, nome, e-mail e telefone" time="0.003876961">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarClientes &gt; recusa documento inválido antes de gravar" time="0.000971292">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarClientes &gt; busca por documento com qualquer pontuação" time="0.000284444">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarClientes &gt; devolve 404 para cliente inexistente" time="0.000319457">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarClientes &gt; atualiza só os campos enviados" time="0.000159708">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarClientes &gt; cria acesso CLIENTE com hash e e-mail normalizado" time="0.0004617">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarClientes &gt; não cria acesso para cliente inativo nem com senha curta" time="0.001357326">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarVeiculos &gt; normaliza placa e textos" time="0.001646651">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarVeiculos &gt; exige cliente existente e ativo" time="0.00115141">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarVeiculos &gt; valida placa e ano antes de consultar o cliente" time="0.000518513">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarVeiculos &gt; troca o dono só para cliente ativo e altera os demais campos" time="0.000456861">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarVeiculos &gt; lista por placa normalizada e devolve 404 para inexistente" time="0.000508456">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="GerenciarVeiculos &gt; busca e remove veículo existente" time="0.000287095">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="catálogo &gt; serviço: normaliza, altera e devolve 404" time="0.000868523">
+        </testcase>
+        <testcase classname="tests/unit/cadastros.test.ts" name="catálogo &gt; peça: SKU em maiúsculas, altera e devolve 404" time="0.000980087">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/config.test.ts" timestamp="2026-10-25T22:17:13.002Z" hostname="1523d0186f11" tests="7" failures="0" errors="0" skipped="0" time="0.006249937">
+        <testcase classname="tests/unit/config.test.ts" name="carregarConfig &gt; aplica valores padrão" time="0.002963429">
+        </testcase>
+        <testcase classname="tests/unit/config.test.ts" name="carregarConfig &gt; escuta em localhost na Vercel e em 0.0.0.0 no container" time="0.000396917">
+        </testcase>
+        <testcase classname="tests/unit/config.test.ts" name="carregarConfig &gt; lista todas as variáveis ausentes de uma vez" time="0.000587132">
+        </testcase>
+        <testcase classname="tests/unit/config.test.ts" name="carregarConfig &gt; recusa segredo curto" time="0.000150988">
+        </testcase>
+        <testcase classname="tests/unit/config.test.ts" name="carregarConfig &gt; recusa porta não numérica" time="0.000179936">
+        </testcase>
+        <testcase classname="tests/unit/config.test.ts" name="carregarConfig &gt; aceita CA em PEM com quebra de linha escapada e recusa valor que não é certificado" time="0.000174398">
+        </testcase>
+        <testcase classname="tests/unit/config.test.ts" name="carregarConfig &gt; recusa sslmode na URL junto com a CA" time="0.000489255">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/documento-placa.test.ts" timestamp="2026-10-25T22:17:13.003Z" hostname="1523d0186f11" tests="27" failures="0" errors="0" skipped="0" time="0.007430618">
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; aceita CPF 529.982.247-25" time="0.002264871">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; aceita CPF 11144477735" time="0.000240265">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; aceita CNPJ 11.222.333/0001-81" time="0.000227343">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; aceita CNPJ 12.ABC.345/01DE-35" time="0.000258514">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; aceita CNPJ 12abc34501de35" time="0.000179055">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; recusa 529.982.247-24" time="0.000363187">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; recusa 111.111.111-11" time="0.000055671">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; recusa 11.111.111/1111-11" time="0.000137815">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; recusa 11.222.333/0001-82" time="0.000584572">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; recusa 12.ABC.345/01DE-36" time="0.000059825">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; recusa 12ABC34501DEA5" time="0.000101358">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; recusa 1234567890" time="0.000032933">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="criarDocumento &gt; recusa " time="0.000029619">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="normalizarPlaca &gt; normaliza ABC-1234" time="0.000208296">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="normalizarPlaca &gt; normaliza abc1d23" time="0.000053196">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="normalizarPlaca &gt; normaliza  BRA 2E19 " time="0.000033017">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="normalizarPlaca &gt; recusa AB12345" time="0.000243452">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="normalizarPlaca &gt; recusa ABCD123" time="0.000047827">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="normalizarPlaca &gt; recusa ABC12D3" time="0.000029451">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="normalizarPlaca &gt; recusa 1BC1234" time="0.000026514">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="normalizarPlaca &gt; recusa ABC123" time="0.000026682">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="validarAno &gt; aceita de 1900 até o ano seguinte" time="0.000092423">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="validarAno &gt; recusa 1899" time="0.00005349">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="validarAno &gt; recusa 2028" time="0.000232964">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="validarAno &gt; recusa 2020.5" time="0.000254948">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="texto &gt; recusa obrigatório vazio e limpa espaços" time="0.000115328">
+        </testcase>
+        <testcase classname="tests/unit/documento-placa.test.ts" name="texto &gt; transforma opcional vazio em null" time="0.000077613">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/estoque.test.ts" timestamp="2026-10-25T22:17:13.006Z" hostname="1523d0186f11" tests="14" failures="0" errors="0" skipped="0" time="0.008158711">
+        <testcase classname="tests/unit/estoque.test.ts" name="aplicarMovimento &gt; ENTRADA de 2" time="0.002458609">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="aplicarMovimento &gt; AJUSTE de 6" time="0.000233384">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="aplicarMovimento &gt; RESERVA de 6" time="0.000084241">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="aplicarMovimento &gt; LIBERACAO de 4" time="0.000258556">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="aplicarMovimento &gt; CONSUMO de 4" time="0.00024446">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="aplicarMovimento &gt; recusa AJUSTE de 7" time="0.00046186">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="aplicarMovimento &gt; recusa RESERVA de 7" time="0.000082186">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="aplicarMovimento &gt; recusa LIBERACAO de 5" time="0.000076941">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="aplicarMovimento &gt; recusa CONSUMO de 5" time="0.000104085">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="aplicarMovimento &gt; não acumula erro de ponto flutuante" time="0.00023674">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="reserva do orçamento &gt; soma linhas da mesma peça" time="0.000232251">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="reserva do orçamento &gt; lista todas as peças em falta" time="0.001664063">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="avaliarDecisao &gt; grava a primeira decisão e reconhece a repetida" time="0.000253354">
+        </testcase>
+        <testcase classname="tests/unit/estoque.test.ts" name="avaliarDecisao &gt; recusa trocar a decisão e decidir versão invalidada" time="0.000229147">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/execucao.test.ts" timestamp="2026-10-25T22:17:13.008Z" hostname="1523d0186f11" tests="10" failures="0" errors="0" skipped="0" time="0.009713739">
+        <testcase classname="tests/unit/execucao.test.ts" name="pré-condições da execução &gt; só inicia com a versão atual aprovada" time="0.003742747">
+        </testcase>
+        <testcase classname="tests/unit/execucao.test.ts" name="pré-condições da execução &gt; finaliza só com todos os serviços concluídos" time="0.000325723">
+        </testcase>
+        <testcase classname="tests/unit/execucao.test.ts" name="pré-condições da execução &gt; consumo e conclusão só em EM_EXECUCAO" time="0.000306046">
+        </testcase>
+        <testcase classname="tests/unit/execucao.test.ts" name="validarPeriodo &gt; aceita período de até um ano com início antes do fim" time="0.000974818">
+        </testcase>
+        <testcase classname="tests/unit/execucao.test.ts" name="validarPeriodo &gt; recusa de 2026-02-01 até 2026-01-01" time="0.000215093">
+        </testcase>
+        <testcase classname="tests/unit/execucao.test.ts" name="validarPeriodo &gt; recusa de 2026-01-01 até 2026-01-01" time="0.000065488">
+        </testcase>
+        <testcase classname="tests/unit/execucao.test.ts" name="validarPeriodo &gt; recusa de 2025-01-01 até 2026-06-01" time="0.000049043">
+        </testcase>
+        <testcase classname="tests/unit/execucao.test.ts" name="validarPeriodo &gt; recusa de invalida até 2026-01-01" time="0.000076018">
+        </testcase>
+        <testcase classname="tests/unit/execucao.test.ts" name="aplicarEstorno &gt; desfaz o efeito no físico" time="0.000909246">
+        </testcase>
+        <testcase classname="tests/unit/execucao.test.ts" name="aplicarEstorno &gt; recusa estorno de entrada já comprometida e de movimento do fluxo" time="0.000400944">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/orcamento.test.ts" timestamp="2026-10-25T22:17:13.009Z" hostname="1523d0186f11" tests="19" failures="0" errors="0" skipped="0" time="0.006752827">
+        <testcase classname="tests/unit/orcamento.test.ts" name="totalDaLinha &gt; 2 x 8000 = 16000" time="0.001634864">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="totalDaLinha &gt; 4.5 x 4599 = 20696" time="0.00024253">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="totalDaLinha &gt; 0.333 x 100 = 33" time="0.000058147">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="totalDaLinha &gt; 0.001 x 1 = 0" time="0.000211191">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="totalDaLinha &gt; 1.005 x 1000 = 1005" time="0.000101106">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="totalDaLinha &gt; 0.1 x 3 = 0" time="0.00004166">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="totalDaLinha &gt; 0.5 x 1 = 1" time="0.000037087">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="totalDaLinha &gt; não perde precisão em valores grandes" time="0.000195836">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="totalDaLinha &gt; recusa total acima do inteiro seguro" time="0.001173884">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="validarQuantidade &gt; aceita inteiro para peça e até 3 casas para insumo" time="0.00018497">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="validarQuantidade &gt; recusa 1.5 (inteira=true)" time="0.000137815">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="validarQuantidade &gt; recusa 0 (inteira=false)" time="0.000060664">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="validarQuantidade &gt; recusa -1 (inteira=false)" time="0.000077403">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="validarQuantidade &gt; recusa 0.0001 (inteira=false)" time="0.000101987">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="validarQuantidade &gt; recusa 100001 (inteira=false)" time="0.000037506">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="validarQuantidade &gt; recusa NaN (inteira=false)" time="0.000033227">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="calcularOrcamento &gt; soma serviços e peças e devolve linhas sem o campo ativo" time="0.000643012">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="calcularOrcamento &gt; recusa orçamento vazio e item inativo" time="0.000386638">
+        </testcase>
+        <testcase classname="tests/unit/orcamento.test.ts" name="calcularOrcamento &gt; precificar não aplica as regras de publicação" time="0.000074425">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/unit/ordem-servico.test.ts" timestamp="2026-10-25T22:17:13.010Z" hostname="1523d0186f11" tests="10" failures="0" errors="0" skipped="0" time="0.007697104">
+        <testcase classname="tests/unit/ordem-servico.test.ts" name="máquina de estados da OS &gt; RECEBIDA + INICIAR_DIAGNOSTICO = EM_DIAGNOSTICO" time="0.001484882">
+        </testcase>
+        <testcase classname="tests/unit/ordem-servico.test.ts" name="máquina de estados da OS &gt; EM_DIAGNOSTICO + PUBLICAR_ORCAMENTO = AGUARDANDO_APROVACAO" time="0.000164707">
+        </testcase>
+        <testcase classname="tests/unit/ordem-servico.test.ts" name="máquina de estados da OS &gt; AGUARDANDO_APROVACAO + REABRIR_DIAGNOSTICO = EM_DIAGNOSTICO" time="0.00005865">
+        </testcase>
+        <testcase classname="tests/unit/ordem-servico.test.ts" name="máquina de estados da OS &gt; AGUARDANDO_APROVACAO + INICIAR_EXECUCAO = EM_EXECUCAO" time="0.000113399">
+        </testcase>
+        <testcase classname="tests/unit/ordem-servico.test.ts" name="máquina de estados da OS &gt; EM_EXECUCAO + FINALIZAR = FINALIZADA" time="0.000039772">
+        </testcase>
+        <testcase classname="tests/unit/ordem-servico.test.ts" name="máquina de estados da OS &gt; FINALIZADA + ENTREGAR = ENTREGUE" time="0.00003503">
+        </testcase>
+        <testcase classname="tests/unit/ordem-servico.test.ts" name="máquina de estados da OS &gt; recusa as 30 combinações fora da tabela com 409" time="0.002766502">
+        </testcase>
+        <testcase classname="tests/unit/ordem-servico.test.ts" name="máquina de estados da OS &gt; ENTREGUE é estado final" time="0.000369648">
+        </testcase>
+        <testcase classname="tests/unit/ordem-servico.test.ts" name="máquina de estados da OS &gt; confere versão e fase de diagnóstico" time="0.001039846">
+        </testcase>
+        <testcase classname="tests/unit/ordem-servico.test.ts" name="máquina de estados da OS &gt; reconhece status válidos" time="0.000225497">
+        </testcase>
+    </testsuite>
+</testsuites>
