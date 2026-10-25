@@ -1,0 +1,49 @@
+name: CI oficina-api
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+defaults:
+  run:
+    working-directory: oficina-api
+
+jobs:
+  qualidade:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: teste
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgres://postgres:teste@localhost:5432/postgres
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: oficina-api/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run arch
+      - name: Testes com cobertura (corte de 80% em domain e application)
+        run: npm run coverage
+      - name: Dependências sem vulnerabilidade alta
+        run: npm audit --audit-level=high
+      - name: Carga sem require(esm), como na Vercel
+        run: npm run build && npm run check:carga
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cobertura-${{ github.sha }}
+          path: oficina-api/coverage
+      - name: Build da imagem
+        run: docker build -t oficina-api:${{ github.sha }} .

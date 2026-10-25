@@ -1,0 +1,55 @@
+{
+  "name": "oficina-api",
+  "version": "0.5.1",
+  "private": true,
+  "description": "Back-end da oficina mecânica, Tech Challenge Fase 1 FIAP SOAT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "tsx watch src/main/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/main/server.js",
+    "migrate": "node-pg-migrate up --migrations-dir db/migrations --migration-file-language sql",
+    "migrate:down": "node-pg-migrate down --migrations-dir db/migrations --migration-file-language sql",
+    "seed": "tsx src/main/seed.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "arch": "depcruise src --config .dependency-cruiser.cjs",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "coverage": "vitest run --coverage",
+    "check:carga": "node --no-experimental-require-module scripts/verificar-carga.mjs"
+  },
+  "dependencies": {
+    "@fastify/jwt": "10.2.5",
+    "@fastify/swagger": "9.9.2",
+    "@fastify/swagger-ui": "6.1.2",
+    "@fastify/type-provider-typebox": "6.3.0",
+    "bcryptjs": "3.0.3",
+    "fastify": "5.12.7",
+    "fastify-plugin": "6.0.1",
+    "node-pg-migrate": "9.0.0",
+    "pg": "8.23.1",
+    "typebox": "1.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@testcontainers/postgresql": "12.2.1",
+    "@types/node": "24.19.2",
+    "@types/pg": "8.23.1",
+    "@vitest/coverage-v8": "5.0.5",
+    "dependency-cruiser": "18.7.0",
+    "eslint": "10.13.0",
+    "pino-pretty": "13.2.0",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.0",
+    "vitest": "5.0.5"
+  },
+  "overrides": {
+    "content-disposition": "2.0.1"
+  }
+}

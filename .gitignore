@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+.vercel/
+.DS_Store
+*.log
+
+# material da FIAP e da turma: uso pessoal, fora do repositório público
+referencias/
+
+# cópias locais de trabalho, fora do repositório
+/TECH_CHALENGER/
+/FIAP_CARLOS_FREDERICO/

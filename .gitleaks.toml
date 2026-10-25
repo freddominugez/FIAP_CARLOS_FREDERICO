@@ -1,0 +1,10 @@
+# Regras padrão do gitleaks, com exceção só para valores fictícios de exemplo e de teste.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "segredo de exemplo no .env.example e valores fixos dos testes"
+paths = [
+  '''oficina-api/\.env\.example$''',
+  '''oficina-api/tests/''',
+]

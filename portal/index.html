@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oficina SOAT Fase 1</title>
+<meta name="description" content="Portal do Tech Challenge Fase 1 da FIAP SOAT: back-end de oficina mecânica com DDD, plano construtivo, vídeo, referências e entrega.">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html">Oficina<span>.</span>SOAT</a>
+    <nav class="nav" aria-label="Principal">
+      <a href="index.html" aria-current="page">Visão geral</a>
+      <a href="plano.html">Plano passo a passo</a>
+      <a href="referencias.html">Referências</a>
+    </nav>
+    <button class="theme-btn" type="button" aria-label="Alternar tema claro e escuro">Tema</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <p class="eyebrow">FIAP · SOAT Software Architecture · Fase 1 · Grupo 144</p>
+    <h1>Sistema integrado de atendimento e execução de serviços para oficina mecânica</h1>
+    <p class="lead">Back-end monolítico em camadas, com DDD, que controla ordem de serviço, orçamento, aprovação do cliente e estoque de peças. Este portal reúne o plano, os diagramas, o vídeo, as referências e o PDF da entrega.</p>
+    <div class="actions">
+      <a class="btn" href="plano.html">Ver o plano passo a passo</a>
+      <a class="btn ghost" href="pdfs/plano-construtivo-v1.pdf">Plano construtivo v1.0 (PDF)</a>
+    </div>
+  </div>
+
+  <section id="numeros">
+    <div class="grid c4">
+      <div class="card"><div class="kpi">6</div><div class="kpi-label">status da ordem de serviço</div></div>
+      <div class="card"><div class="kpi">13</div><div class="kpi-label">regras de negócio verificáveis</div></div>
+      <div class="card"><div class="kpi">≥ 80%</div><div class="kpi-label">cobertura nos domínios críticos</div></div>
+      <div class="card"><div class="kpi">03/11</div><div class="kpi-label">prazo de entrega, 23h59</div></div>
+    </div>
+  </section>
+
+  <section id="problema">
+    <h2>O problema da oficina</h2>
+    <p>Atendimento, diagnóstico, execução e entrega correm em anotações à mão e planilhas. Disso saem cinco falhas que o sistema precisa eliminar:</p>
+    <div class="grid c3">
+      <div class="card"><h3>Prioridade errada</h3><p>Sem fila única, o atendimento segue quem pergunta mais alto.</p></div>
+      <div class="card"><h3>Estoque sem controle</h3><p>Peça prometida no orçamento falta na hora da execução.</p></div>
+      <div class="card"><h3>Status invisível</h3><p>O cliente liga para saber em que pé está o carro.</p></div>
+      <div class="card"><h3>Histórico perdido</h3><p>Cliente e veículo não carregam o que já foi feito.</p></div>
+      <div class="card"><h3>Aprovação solta</h3><p>Orçamento e autorização circulam por mensagem, sem versão.</p></div>
+    </div>
+  </section>
+
+  <section id="fluxo">
+    <div class="section-head">
+      <h2>Ciclo da ordem de serviço</h2>
+      <p>Mudança de status só por comando, revalidada dentro da transação.</p>
+    </div>
+    <div class="flow">
+      <div class="st"><strong>Recebida</strong><small>Cliente por CPF/CNPJ, veículo, solicitações</small></div>
+      <div class="st"><strong>Em diagnóstico</strong><small>Técnico detalha serviços, peças e quantidades</small></div>
+      <div class="st hl"><strong>Aguardando aprovação</strong><small>Orçamento versionado com preço congelado</small></div>
+      <div class="st"><strong>Em execução</strong><small>Aprovação válida e peças reservadas</small></div>
+      <div class="st"><strong>Finalizada</strong><small>Reservas consumidas, duração registrada</small></div>
+      <div class="st"><strong>Entregue</strong><small>Histórico preservado, edição bloqueada</small></div>
+    </div>
+    <p class="note">Rejeição mantém a OS em Aguardando aprovação com a execução bloqueada. Reabrir o diagnóstico libera as reservas e gera nova versão do orçamento. Aprovar reserva o estoque, e iniciar a execução é um comando separado.</p>
+  </section>
+
+  <section id="arquitetura">
+    <div class="section-head">
+      <h2>Arquitetura do monólito</h2>
+      <p>Dependência sempre de fora para dentro.</p>
+    </div>
+    <div class="grid c2">
+      <div class="layers" aria-label="Camadas">
+        <div class="layer l1"><b>interfaces/http</b><span>Rotas Fastify, schema TypeBox, JWT, OpenAPI</span></div>
+        <div class="arrow-down">↓ chama</div>
+        <div class="layer l2"><b>application</b><span>Casos de uso, transação, autorização por recurso</span></div>
+        <div class="arrow-down">↓ usa</div>
+        <div class="layer l3"><b>domain</b><span>Agregados, objetos de valor, regras, eventos</span></div>
+        <div class="arrow-down">↑ implementa portas</div>
+        <div class="layer l4"><b>infrastructure</b><span>PostgreSQL, repositórios SQL, bcrypt, logs</span></div>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>Cadastros</h3><p>Cliente, Veículo. Objetos de valor DocumentoFiscal e Placa.</p></div>
+        <div class="card"><h3>Atendimento</h3><p>OrdemServico, Orcamento, histórico de status.</p></div>
+        <div class="card"><h3>Catálogo e Estoque</h3><p>ServicoCatalogo, Peca, MovimentoEstoque, reservas.</p></div>
+        <div class="card"><h3>Identidade e Acesso</h3><p>Usuários, perfis ADMIN, ATENDENTE, TECNICO, CLIENTE.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ddd">
+    <div class="section-head">
+      <h2>Documentação DDD exigida</h2>
+      <p>Confirmada pelo professor no fórum da turma.</p>
+    </div>
+    <div class="grid c3">
+      <div class="card"><h3>Event Storming <span class="tag ok">montado</span></h3><p>Criação da OS, acompanhamento da OS, peças e insumos. Com exceções e eventos pivotais. <a href="pdfs/event-storming.pdf">PDF</a></p></div>
+      <div class="card"><h3>Linguagem ubíqua <span class="tag warn">rascunho</span></h3><p>Glossário com o nome de cada termo no código.</p></div>
+      <div class="card"><h3>C4 níveis 1 a 3 <span class="tag warn">rascunho</span></h3><p>Contexto, contêineres e componentes do cenário de aprovação do orçamento.</p></div>
+    </div>
+    <h3>Legenda do Event Storming</h3>
+    <div class="legend">
+      <span><i style="background:#f59a3c"></i>Evento</span>
+      <span><i style="background:#5aa6e6"></i>Comando</span>
+      <span><i style="background:#f7e15a"></i>Ator</span>
+      <span><i style="background:#c9b3f0"></i>Política</span>
+      <span><i style="background:#b8e6b0"></i>Modelo de leitura</span>
+      <span><i style="background:#f2a7c3"></i>Sistema externo</span>
+      <span><i class="diamond" style="background:#f2a7c3"></i>Ponto de atenção</span>
+      <span><i class="bar"></i>Evento pivotal</span>
+    </div>
+    <h3>Quadros</h3>
+    <div class="grid c3 shots">
+      <a href="assets/img/01-criacao-os.png"><img src="assets/img/01-criacao-os.png" alt="Event Storming do fluxo de criação da ordem de serviço" loading="lazy"><span>Fluxo 1 · Criação da OS</span></a>
+      <a href="assets/img/02-acompanhamento-os.png"><img src="assets/img/02-acompanhamento-os.png" alt="Event Storming do fluxo de acompanhamento da ordem de serviço" loading="lazy"><span>Fluxo 2 · Acompanhamento da OS</span></a>
+      <a href="assets/img/03-pecas-insumos.png"><img src="assets/img/03-pecas-insumos.png" alt="Event Storming do fluxo de gestão de peças e insumos" loading="lazy"><span>Fluxo 3 · Peças e insumos</span></a>
+    </div>
+  </section>
+
+  <section id="video-sec">
+    <div class="section-head">
+      <h2>Vídeo da entrega</h2>
+      <p>Até 15 minutos, público no YouTube.</p>
+    </div>
+    <div class="video" id="video">
+      <div class="pending"><strong>Vídeo ainda não publicado</strong>O player aparece quando o ID real for preenchido em <code>assets/js/config.js</code>.</div>
+    </div>
+  </section>
+
+  <section id="entrega">
+    <div class="section-head">
+      <h2>Links da entrega</h2>
+      <p>Os mesmos que vão no PDF oficial.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Item</th><th>Link</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Repositório GitHub</td><td><a data-cfg="githubUrl" data-label="Abrir repositório">pendente</a></td><td><span class="tag"></span></td></tr>
+          <tr><td>Commit da entrega</td><td><code data-cfg="commitHash">pendente</code></td><td><span class="tag"></span></td></tr>
+          <tr><td>Vídeo no YouTube</td><td><a data-cfg="youtubeId" data-label="Assistir no YouTube">pendente</a></td><td><span class="tag"></span></td></tr>
+          <tr><td>Documentação DDD (FigJam)</td><td><a data-cfg="miroUrl" data-label="Abrir quadro">pendente</a></td><td><span class="tag"></span></td></tr>
+          <tr><td>Swagger da API</td><td><a data-cfg="apiDocsUrl" data-label="Abrir Swagger">pendente</a></td><td><span class="tag"></span></td></tr>
+          <tr><td>PDF oficial da entrega</td><td><a data-cfg="pdfEntrega" data-label="Baixar PDF">pendente</a></td><td><span class="tag"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Carlos Frederico Ribeiro de Almeida Dominguez · FIAP SOAT · 2026</span>
+    <span>Conteúdo com dados sintéticos. Nenhum dado real de cliente.</span>
+  </div>
+</footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
