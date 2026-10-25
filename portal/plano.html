@@ -38,15 +38,15 @@
   <section id="etapas">
     <h2>Etapas do produto</h2>
     <ol class="steps">
-      <li class="step"><div class="when">D+0<small>25/10</small></div><div><h3>Requisitos e estrutura</h3><p>Checklist de tudo que o enunciado exige, com responsável e artefato por item. Pastas do produto e do portal criadas.</p><p class="exit">nenhum requisito sem artefato e critério, portal publicado com o plano.</p></div></li>
-      <li class="step"><div class="when">D+1<small>26/10</small></div><div><h3>Domínio</h3><p>Event Storming no Miro dos três fluxos pedidos (criação da OS, acompanhamento, peças e insumos) com a legenda de cores da aula 6 e as exceções. Linguagem ubíqua, mapa de contexto, C4 níveis 1 a 3, ADRs, matriz de requisitos, DoR e DoD.</p><p class="exit">diagramas confirmados pelo professor prontos: Event Storming, linguagem ubíqua, C4 até o nível 3.</p></div></li>
-      <li class="step"><div class="when">D+2<small>27/10</small></div><div><h3>Base técnica</h3><p>Versões fixadas e lockfile. Fastify com <code>/health</code>, migrações, login JWT, Dockerfile, docker-compose, GitHub Actions.</p><p class="exit">clone novo sobe com <code>docker compose up</code> e passa um teste de integração.</p></div></li>
-      <li class="step"><div class="when">D+3<small>28/10</small></div><div><h3>Cadastros</h3><p>CRUD de clientes, veículos, serviços e peças. Validação de CPF, CNPJ e placa. Perfis aplicados.</p><p class="exit">entrada inválida dá 400, usuário sem perfil dá 403.</p></div></li>
-      <li class="step"><div class="when">D+4<small>29/10</small></div><div><h3>OS e orçamento</h3><p>Abertura da OS, inclusão de serviços e peças, cálculo do total, publicação com preço congelado e número de versão.</p><p class="exit">total em centavos confere com o teste e preço do catálogo alterado não muda a versão publicada.</p></div></li>
-      <li class="step"><div class="when">D+5<small>30/10</small></div><div><h3>Aprovação e estoque</h3><p>Reserva atômica na aprovação, rejeição, reabertura do diagnóstico, idempotência.</p><p class="exit">duas aprovações simultâneas pela última peça: uma passa, a outra recebe 409.</p></div></li>
-      <li class="step"><div class="when">D+6<small>31/10</small></div><div><h3>Execução e entrega</h3><p>Início, consumo das reservas, finalização, entrega. Consulta do cliente pela API. Tempo médio de execução.</p><p class="exit">jornada completa roda de ponta a ponta e cliente A recebe 404 na OS do cliente B.</p></div></li>
-      <li class="step"><div class="when">D+7<small>01/11</small></div><div><h3>Qualidade</h3><p>Cobertura em <code>domain</code> e <code>application</code>. <code>npm audit</code>, SonarCloud, OWASP ZAP, Trivy e Gitleaks. Achados tratados ou justificados.</p><p class="exit">relatórios com hash do commit em <code>docs/evidencias/</code>, CI falha abaixo de 80%.</p></div></li>
-      <li class="step"><div class="when">D+8<small>02/11</small></div><div><h3>Documentação e vídeo</h3><p>Exportação do Miro para <code>docs/ddd/</code>, README testado em máquina limpa, Swagger publicado, vídeo gravado com dados sintéticos.</p><p class="exit">vídeo público no YouTube com até 15 minutos.</p></div></li>
+      <li class="step"><div class="when">D+0<small>25/10</small></div><div><h3>Requisitos e estrutura <span class="tag ok">feito</span></h3><p>Checklist de tudo que o enunciado exige, com responsável e artefato por item. Pastas do produto e do portal criadas.</p><p class="exit">nenhum requisito sem artefato e critério, portal publicado com o plano.</p></div></li>
+      <li class="step"><div class="when">D+1<small>26/10</small></div><div><h3>Domínio <span class="tag ok">feito</span></h3><p>Event Storming no FigJam (equivalente ao Miro, aceito pelo enunciado) dos três fluxos pedidos (criação da OS, acompanhamento, peças e insumos) com a legenda de cores da aula 6 e as exceções. Linguagem ubíqua, mapa de contexto, C4 níveis 1 a 3, ADRs, matriz de requisitos, DoR e DoD.</p><p class="exit">diagramas confirmados pelo professor prontos: Event Storming, linguagem ubíqua, C4 até o nível 3.</p></div></li>
+      <li class="step"><div class="when">D+2<small>27/10</small></div><div><h3>Base técnica <span class="tag ok">feito</span></h3><p>Versões fixadas e lockfile. Fastify com <code>/health</code>, migrações, login JWT, Dockerfile, docker-compose, GitHub Actions.</p><p class="exit">clone novo sobe com <code>docker compose up</code> e passa um teste de integração.</p></div></li>
+      <li class="step"><div class="when">D+3<small>28/10</small></div><div><h3>Cadastros <span class="tag ok">feito</span></h3><p>CRUD de clientes, veículos, serviços e peças. Validação de CPF, CNPJ e placa. Perfis aplicados.</p><p class="exit">entrada inválida dá 400, usuário sem perfil dá 403.</p></div></li>
+      <li class="step"><div class="when">D+4<small>29/10</small></div><div><h3>OS e orçamento <span class="tag ok">feito</span></h3><p>Abertura da OS, inclusão de serviços e peças, cálculo do total, publicação com preço congelado e número de versão.</p><p class="exit">total em centavos confere com o teste e preço do catálogo alterado não muda a versão publicada.</p></div></li>
+      <li class="step"><div class="when">D+5<small>30/10</small></div><div><h3>Aprovação e estoque <span class="tag ok">feito</span></h3><p>Reserva atômica na aprovação, rejeição, reabertura do diagnóstico, idempotência.</p><p class="exit">duas aprovações simultâneas pela última peça: uma passa, a outra recebe 409.</p></div></li>
+      <li class="step"><div class="when">D+6<small>31/10</small></div><div><h3>Execução e entrega <span class="tag ok">feito</span></h3><p>Início, consumo das reservas, finalização, entrega. Consulta do cliente pela API. Tempo médio de execução.</p><p class="exit">jornada completa roda de ponta a ponta e cliente A recebe 404 na OS do cliente B.</p></div></li>
+      <li class="step"><div class="when">D+7<small>01/11</small></div><div><h3>Qualidade <span class="tag ok">feito</span></h3><p>Cobertura em <code>domain</code> e <code>application</code>. <code>npm audit</code>, SonarQube, OWASP ZAP, Trivy e Gitleaks. Achados tratados ou justificados.</p><p class="exit">relatórios com SHA-256 em <code>docs/evidencias/</code>, a suíte falha abaixo de 80% de cobertura.</p></div></li>
+      <li class="step"><div class="when">D+8<small>02/11</small></div><div><h3>Documentação e vídeo <span class="tag warn">em andamento</span></h3><p>Exportação do Event Storming e do C4 para <code>docs/</code>, README testado em máquina limpa, Swagger publicado, vídeo gravado com dados sintéticos.</p><p class="exit">vídeo público no YouTube com até 15 minutos.</p></div></li>
       <li class="step"><div class="when">D+9<small>03/11</small></div><div><h3>Fechamento</h3><p>PDF oficial com identificação, RM, Discord, links e hash. Tag <code>v1.0-fase1</code>. Links testados em janela anônima.</p><p class="exit">PDF enviado na plataforma FIAP antes das 23h59.</p></div></li>
     </ol>
   </section>
@@ -57,10 +57,10 @@
       <table>
         <thead><tr><th>Passo</th><th>Quando</th><th>O que sai</th></tr></thead>
         <tbody>
-          <tr><td>P1</td><td>D+0</td><td>Projeto Vercel criado com diretório raiz no repositório, <code>portal/</code> publicado como estático.</td></tr>
+          <tr><td>P1 ✓</td><td>D+0</td><td>Projeto Vercel criado, <code>portal/</code> publicado como estático.</td></tr>
           <tr><td>P2</td><td>D+2</td><td>Domínio próprio apontado para o projeto, DNS e HTTPS conferidos.</td></tr>
-          <tr><td>P3</td><td>D+6</td><td>API no mesmo projeto: <code>/api/*</code> reescrito para a função Node em <code>oficina-api/api/</code>, Swagger em <code>/api/docs</code>.</td></tr>
-          <tr><td>P4</td><td>D+8</td><td>ID do vídeo, link do Miro, GitHub e hash em <code>assets/js/config.js</code>.</td></tr>
+          <tr><td>P3 ✓</td><td>D+6</td><td>API no mesmo projeto com Vercel Services: <code>/api/*</code> vai para o app Fastify de <code>oficina-api/</code>, Swagger em <code>/api/docs</code>. Banco no schema <code>oficina</code> do Supabase.</td></tr>
+          <tr><td>P4</td><td>D+8</td><td>ID do vídeo, link do FigJam, GitHub e hash em <code>assets/js/config.js</code>.</td></tr>
           <tr><td>P5</td><td>D+9</td><td>PDF oficial em <code>pdfs/</code> e link na página inicial.</td></tr>
         </tbody>
       </table>
@@ -81,8 +81,8 @@
           <tr><td>Dados</td><td><code>pg</code> com SQL à mão, node-pg-migrate</td><td>O <code>SELECT ... FOR UPDATE</code> da reserva fica visível e testável.</td></tr>
           <tr><td>Autenticação</td><td>JWT emitido pela API, bcrypt</td><td>Compose sobe sem conta externa, e o enunciado pede JWT nas rotas administrativas.</td></tr>
           <tr><td>Testes</td><td>Vitest, coverage-v8, Testcontainers</td><td>Atomicidade e concorrência só se provam contra PostgreSQL real.</td></tr>
-          <tr><td>Segurança</td><td>npm audit, SonarCloud, OWASP ZAP, Trivy, Gitleaks</td><td>As três primeiras são as das aulas de Desenvolvimento Seguro. Trivy e Gitleaks cobrem imagem e segredo.</td></tr>
-          <tr><td>CI</td><td>GitHub Actions</td><td>PR para <code>main</code> só entra com lint, testes e cobertura verdes.</td></tr>
+          <tr><td>Segurança</td><td>npm audit, SonarQube, OWASP ZAP, Trivy, Gitleaks</td><td>As três primeiras são as das aulas de Desenvolvimento Seguro, com SonarQube local no lugar do SonarCloud. Trivy e Gitleaks cobrem imagem e segredo.</td></tr>
+          <tr><td>CI</td><td>GitHub Actions e verificação local</td><td>Workflow com lint, tipos, camadas, testes e cobertura. As evidências da entrega foram geradas localmente, em containers.</td></tr>
         </tbody>
       </table>
     </div>
@@ -97,18 +97,18 @@
 
   <section id="estrutura">
     <h2>Estrutura de pastas</h2>
-<pre class="tree"><code>TECH_CHALENGER/
+<pre class="tree"><code>FIAP_CARLOS_FREDERICO/
 ├── oficina-api/              produto exigido
 │   ├── src/domain/           shared, cadastros, atendimento, estoque, identidade
 │   ├── src/application/      use-cases/*, ports
-│   ├── src/infrastructure/   db, repositories, auth, observability
+│   ├── src/infrastructure/   db, repositories, auth
 │   ├── src/interfaces/http/  routes, schemas, plugins
-│   ├── src/main/             app.ts, server.ts
-│   ├── api/                  entrada da função Vercel
-│   ├── db/migrations, seeds
+│   ├── src/main/             app.ts, server.ts (também a entrada na Vercel), seed.ts
+│   ├── db/migrations/        SQL
+│   ├── scripts/              verificação de carga e roteiro de ponta a ponta
 │   └── tests/unit, integration
 ├── portal/                   este site
-├── docs/                     plano, adr, ddd, evidencias
+├── docs/                     plano, adr, ddd, arquitetura (C4), evidencias, video
 ├── entrega/                  PDF oficial
 └── vercel.json</code></pre>
   </section>
@@ -126,7 +126,7 @@
           <tr><td>Aguardando aprovação</td><td>rejeitar</td><td>mesmo status, decisão REJEITADA</td><td>Cliente</td><td>versão atual</td></tr>
           <tr><td>Aguardando aprovação</td><td>reabrir diagnóstico</td><td>Em diagnóstico</td><td>Técnico, atendente</td><td>libera reservas</td></tr>
           <tr><td>Aguardando aprovação</td><td>iniciar execução</td><td>Em execução</td><td>Técnico</td><td>decisão APROVADA</td></tr>
-          <tr><td>Em execução</td><td>finalizar</td><td>Finalizada</td><td>Técnico</td><td>reservas consumidas ou liberadas</td></tr>
+          <tr><td>Em execução</td><td>finalizar</td><td>Finalizada</td><td>Técnico</td><td>serviços concluídos. Peça reservada e não usada é liberada</td></tr>
           <tr><td>Finalizada</td><td>entregar</td><td>Entregue</td><td>Atendente</td><td></td></tr>
         </tbody>
       </table>
@@ -161,9 +161,9 @@
         <tbody>
           <tr><td>Autenticação</td><td><code>POST /auth/login</code></td><td>público</td></tr>
           <tr><td>Cadastros</td><td>CRUD <code>/customers</code>, <code>/vehicles</code></td><td>ATENDENTE, ADMIN</td></tr>
-          <tr><td>Catálogo</td><td>CRUD <code>/services</code>, <code>/parts</code>, <code>POST /parts/{id}/movements</code></td><td>ADMIN</td></tr>
+          <tr><td>Catálogo</td><td>CRUD <code>/services</code>, <code>/parts</code>, movimentos e estorno em <code>/parts/{id}/movements</code></td><td>ADMIN escreve, equipe lê</td></tr>
           <tr><td>OS</td><td><code>GET/POST /orders</code>, <code>GET /orders/{id}</code></td><td>ATENDENTE, TECNICO, ADMIN</td></tr>
-          <tr><td>Fluxo</td><td><code>POST /orders/{id}/diagnosis</code>, <code>/quotes</code>, <code>/reopen</code>, <code>/start</code>, <code>/finish</code>, <code>/deliver</code></td><td>conforme a máquina de estados</td></tr>
+          <tr><td>Fluxo</td><td><code>POST /orders/{id}/diagnosis</code>, <code>/services</code>, <code>/parts</code>, <code>/quotes</code>, <code>/reopen</code>, <code>/start</code>, <code>/consumptions</code>, <code>/services/{itemId}/complete</code>, <code>/finish</code>, <code>/deliver</code></td><td>conforme a máquina de estados</td></tr>
           <tr><td>Decisão</td><td><code>POST /quotes/{id}/decision</code></td><td>CLIENTE</td></tr>
           <tr><td>Cliente</td><td><code>GET /me/orders</code>, <code>GET /me/orders/{id}</code></td><td>CLIENTE</td></tr>
           <tr><td>Indicador</td><td><code>GET /metrics/execution-time</code></td><td>ADMIN, ATENDENTE</td></tr>

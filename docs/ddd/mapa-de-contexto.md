@@ -11,7 +11,7 @@ flowchart LR
 
   CAD -- "U → D<br/>cliente-fornecedor" --> AT
   EST -- "U → D<br/>cliente-fornecedor" --> AT
-  AT -- "evento Orçamento aprovado<br/>Published Language" --> EST
+  AT -- "reserva, liberação e consumo<br/>na mesma transação" --> EST
   ID -- "U → D<br/>conformista" --> AT
   ID -- "U → D<br/>conformista" --> CAD
   ID -- "U → D<br/>conformista" --> EST
@@ -19,11 +19,11 @@ flowchart LR
 
 | Upstream | Downstream | Padrão | O que passa |
 |---|---|---|---|
-| Cadastros | Atendimento | cliente-fornecedor | `clienteId`, `veiculoId` e dados para exibição. Atendimento grava cópia na OS para preservar o histórico |
-| Catálogo e Estoque | Atendimento | cliente-fornecedor | serviço e peça ativos com preço atual, copiados para a versão do orçamento |
-| Atendimento | Catálogo e Estoque | Published Language | `OrcamentoAprovado`, `DiagnosticoReaberto`, `ExecucaoIniciada` com itens e quantidades |
+| Cadastros | Atendimento | cliente-fornecedor | `clienteId` e `veiculoId`, conferidos na abertura (cliente e veículo ativos, veículo do mesmo cliente). A OS guarda o cliente da época, então trocar o dono do veículo não muda OS antigas |
+| Catálogo e Estoque | Atendimento | cliente-fornecedor | serviço e peça ativos com nome e preço atuais. Na publicação, descrição e preço são copiados para a versão do orçamento |
+| Atendimento | Catálogo e Estoque | cliente-fornecedor, chamada síncrona | `reservarOrcamento()` na aprovação, `liberarReservas()` na reabertura e na finalização, `consumirPeca()` na execução. Tudo pela porta `EstoqueRepository`, dentro da transação do caso de uso |
 | Identidade e Acesso | todos | conformista | `usuarioId`, perfil e `clienteId` vindos do token |
 
-Kernel compartilhado: `domain/shared` com `Dinheiro`, `Quantidade`, `Id` e erros de domínio. Nada de regra de negócio entra ali.
+Código compartilhado: `domain/shared` tem só os erros de domínio (`ValidationError`, `ConflictError` e outros) e as funções de texto obrigatório e opcional. Nenhuma regra de negócio fica ali.
 
-A reserva acontece na mesma transação da aprovação, chamada de forma síncrona pelo caso de uso. O evento é publicado em memória para registro e histórico, sem fila, porque o enunciado pede monólito e a reserva precisa ser atômica com a decisão.
+Não há eventos nem fila. A reserva precisa ser atômica com a decisão do cliente: se faltar uma peça, a aprovação inteira volta atrás. Por isso o caso de uso `DecidirOrcamento` chama a reserva de forma síncrona, na mesma transação, através da unidade de trabalho (`UnidadeTrabalho`), que entrega os repositórios dos dois contextos ligados à mesma conexão. Os eventos do Event Storming (`OrcamentoAprovado`, `PecaReservada` e outros) aparecem como registros no histórico de status e nos movimentos de estoque.

@@ -1,0 +1,45 @@
+@startuml n3-componentes-aprovacao
+!include <C4/C4_Component>
+title C4 nível 3: componentes da Oficina API no cenário "cliente aprova o orçamento"
+LAYOUT_LEFT_RIGHT()
+
+Person(cliente, "Cliente", "Perfil CLIENTE no JWT")
+ContainerDb(db, "Banco de dados", "PostgreSQL", "quotes, quote_decisions, parts, stock_movements, idempotency_keys")
+
+Container_Boundary(api, "Oficina API") {
+  Boundary(http, "interfaces/http") {
+    Component(entrada, "Plugin entrada", "plugins/entrada.ts", "Lê o JSON, recusa caractere nulo e poluição de protótipo")
+    Component(auth, "Plugin autenticacao", "plugins/autenticacao.ts", "Valida assinatura, emissor, público e validade do JWT. exigirPerfil('CLIENTE')")
+    Component(rota, "Rota de decisão", "routes/orcamentos.ts", "POST /quotes/{id}/decision. Schema TypeBox e Idempotency-Key")
+    Component(erros, "Plugin tratamento-erros", "plugins/tratamento-erros.ts", "AppError vira 4xx com code e request_id")
+  }
+  Boundary(app, "application") {
+    Component(decidir, "DecidirOrcamento", "use-cases/atendimento/decidir-orcamento.ts", "Idempotência, dono da OS (404 se for de outro), lock da OS, grava decisão")
+    Component(reservas, "reservarOrcamento", "use-cases/estoque/reservas.ts", "Soma as peças da versão e reserva todas ou nenhuma")
+    Component(portas, "Portas", "ports/atendimento.ts, ports/estoque.ts", "AtendimentoRepository, EstoqueRepository, UnidadeTrabalho")
+  }
+  Boundary(dom, "domain") {
+    Component(decisao, "Regras da decisão", "atendimento/decisao.ts", "avaliarDecisao: NOVA, REPETIDA, 409 se obsoleta ou já decidida")
+    Component(estoque, "Regras de estoque", "estoque/estoque.ts", "exigirDisponibilidade, aplicarMovimento. Saldo nunca negativo")
+  }
+  Boundary(infra, "infrastructure") {
+    Component(uow, "UnidadeTrabalhoPg", "repositories/atendimento-pg.ts", "Uma transação por caso de uso. Commit ou rollback")
+    Component(repos, "AtendimentoPg e EstoquePg", "repositories/atendimento-pg.ts, estoque-pg.ts", "SQL. OS e peças com SELECT FOR UPDATE, peças em ordem de UUID")
+  }
+}
+
+Rel(cliente, entrada, "POST /api/v1/quotes/{id}/decision", "HTTPS, JSON, JWT")
+Rel(entrada, auth, "Corpo lido")
+Rel(auth, rota, "Perfil CLIENTE confirmado")
+Rel(rota, decidir, "executar(orcamentoId, decisao, usuario, chave)")
+Rel(decidir, decisao, "Avalia")
+Rel(decidir, reservas, "Se APROVADO")
+Rel(reservas, estoque, "Confere saldo e calcula o novo")
+Rel(decidir, portas, "Depende de")
+Rel(uow, portas, "Implementa")
+Rel(uow, repos, "Cria na transação")
+Rel(repos, db, "BEGIN, SELECT FOR UPDATE, INSERT, UPDATE, COMMIT", "SQL")
+Rel(rota, erros, "Erro de regra")
+
+SHOW_LEGEND()
+@enduml

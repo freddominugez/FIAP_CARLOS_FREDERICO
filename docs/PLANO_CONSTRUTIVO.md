@@ -13,11 +13,11 @@ A FIAP avalia um único PDF com identificação, links clicáveis, branch e hash
 
 | Item | Onde fica | Estado |
 |---|---|---|
-| Código do back-end | GitHub público, branch `main` protegida, merge só por PR | a fazer |
-| Vídeo de até 15 minutos | YouTube público | a fazer |
+| Código do back-end | GitHub público, branch `main` protegida, merge só por PR | no GitHub (`freddominugez/FIAP_CARLOS_FREDERICO`), ainda privado. Tornar público até a entrega |
+| Vídeo de até 15 minutos | YouTube público | roteiro pronto em `docs/video/roteiro.md`. Falta gravar |
 | Documentação DDD | FigJam (equivalente ao Miro, aceito pelo enunciado) com acesso sem pedido de permissão, exportada em `docs/ddd/` | Event Storming montado e exportado. Falta liberar o link público |
-| Diagramas C4 | níveis 1, 2 e 3 no FigJam, exportados em `docs/arquitetura/` | desenhados no FigJam. Falta exportar as imagens |
-| Evidências | cobertura e análise de vulnerabilidades em `docs/evidencias/` | a fazer |
+| Diagramas C4 | níveis 1, 2 e 3, exportados em `docs/arquitetura/` | feito: fontes PlantUML em `docs/arquitetura/c4/`, PNG, SVG e `c4.pdf`, conferidos contra o código |
+| Evidências | cobertura e análise de vulnerabilidades em `docs/evidencias/` | feito na D+7, com SHA-256 |
 
 O portal na Vercel reúne esses links, os diagramas, a bibliografia e o PDF. Ele complementa a entrega e não substitui o PDF enviado na plataforma.
 
@@ -202,7 +202,7 @@ Calendário com D+0 em 25/10/2026. Cada etapa só fecha quando o critério de sa
 | D+5 ✅ | 30/10 | Aprovação e estoque | reserva atômica, rejeição, reabertura, idempotência. Teste com duas transações simultâneas pela última peça aprova só uma |
 | D+6 ✅ | 31/10 | Execução e entrega | consumo, finalização, entrega, consulta do cliente, tempo médio. Cliente A recebe 404 na OS do cliente B |
 | D+7 ✅ | 01/11 | Qualidade | cobertura ≥ 80% em `domain` e `application`, `npm audit`, SonarQube (no lugar do SonarCloud), OWASP ZAP, Trivy e Gitleaks rodados e achados tratados. Relatórios com hash em `docs/evidencias/` |
-| D+8 | 02/11 | Documentação e vídeo | exportação DDD, README validado em máquina limpa, Swagger publicado, vídeo gravado e publicado |
+| D+8 (em andamento) | 02/11 | Documentação e vídeo | exportação DDD, README validado em máquina limpa, Swagger publicado, vídeo gravado e publicado |
 | D+9 | 03/11 | Fechamento | PDF oficial com identificação, links testados em janela anônima, tag `v1.0-fase1`, submissão na FIAP até 23h59 |
 
 Portal, em paralelo:
@@ -245,13 +245,13 @@ Entregáveis confirmados pelo professor: Event Storming, linguagem ubíqua e C4 
 |---|---|---|
 | Event Storming (3 fluxos) | `docs/ddd/event-storming.md` | FigJam `NKQrpQI2vGYRkX8YnBAZMN`, exportado em `docs/ddd/event-storming.pdf` |
 | Linguagem ubíqua | `docs/ddd/linguagem-ubiqua.md` | o próprio arquivo |
-| Mapa de contexto | `docs/ddd/mapa-de-contexto.md` | entra em `docs/ddd/diagramas.pdf` |
-| C4 níveis 1, 2 e 3 | `docs/arquitetura/workspace.dsl` | FigJam (mesmo quadro do Event Storming), depois `docs/arquitetura/c4.pdf` |
+| Mapa de contexto | `docs/ddd/mapa-de-contexto.md` | o próprio arquivo, com diagrama Mermaid renderizado pelo GitHub |
+| C4 níveis 1, 2 e 3 | `docs/arquitetura/c4/*.puml` (PlantUML com C4-PlantUML) | `docs/arquitetura/c4.pdf`, PNG e SVG. O C4 desenhado no FigJam antes da implementação fica como rascunho |
 | ADRs | `docs/adr/` | os próprios arquivos |
 
-Cada elemento do Miro aponta para a classe ou o caso de uso correspondente. O vídeo não precisa de câmera: tela gravada com narração, começando por nome, curso, fase e grupo.
+Cada termo da linguagem ubíqua aponta para o nome no código e no banco. O vídeo não precisa de câmera: tela gravada com narração, começando por nome, curso, fase e grupo.
 
-Roteiro de até 15 minutos:
+Roteiro de até 15 minutos, detalhado com a sequência no Swagger em `docs/video/roteiro.md`:
 
 | Tempo | Conteúdo |
 |---|---|
@@ -267,12 +267,12 @@ Roteiro de até 15 minutos:
 
 - [ ] RM e Discord preenchidos no PDF
 - [ ] GitHub público, `main` protegida, tag e hash informados
-- [ ] README com todos os itens que o enunciado lista
+- [x] README com todos os itens que o enunciado lista, validado num clone limpo
 - [ ] YouTube público, até 15 minutos, mesmo commit do PDF
 - [ ] FigJam com link público de visualização e exportado em `docs/ddd/`
-- [ ] C4 níveis 1, 2 e 3 exportados
+- [x] C4 níveis 1, 2 e 3 exportados
 - [ ] Atraso evitado: depois de 03/11 a nota perde 30%
-- [ ] Cobertura ≥ 80% e relatório de vulnerabilidades com hash
-- [ ] Nenhum segredo no Git, `.env.example` só com valores fictícios
+- [x] Cobertura ≥ 80% e relatório de vulnerabilidades com hash
+- [x] Nenhum segredo no Git, `.env.example` só com valores fictícios
 - [ ] Links do PDF testados em janela anônima
 - [ ] PDF enviado na plataforma FIAP antes de 03/11/2026 às 23h59

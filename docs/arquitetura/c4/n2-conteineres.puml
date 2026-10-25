@@ -1,0 +1,21 @@
+@startuml n2-conteineres
+!include <C4/C4_Container>
+title C4 nível 2: contêineres do Sistema da Oficina
+LAYOUT_LEFT_RIGHT()
+
+Person(usuario, "Cliente, atendente, técnico, administrador", "Cada um com seu perfil no JWT")
+Person(avaliador, "Avaliador", "Lê a documentação do projeto")
+
+System_Boundary(oficina, "Sistema da Oficina") {
+  Container(portal, "Portal", "HTML, CSS e JS estáticos", "Plano, diagramas, referências e links da entrega. Mesmo domínio da API.")
+  Container(api, "Oficina API", "TypeScript, Node.js 24, Fastify 5", "Monólito em camadas com DDD. REST em /api/v1, Swagger em /api/docs. Roda no Docker Compose e como função na Vercel.")
+  ContainerDb(db, "Banco de dados", "PostgreSQL 16 e 17", "Schema oficina: OS, orçamento, estoque, histórico, usuários. Compose local ou Supabase em produção.")
+}
+
+Rel(usuario, api, "Usa", "HTTPS, JSON, JWT")
+Rel(avaliador, portal, "Lê", "HTTPS")
+Rel(portal, api, "Link para o Swagger", "HTTPS")
+Rel(api, db, "Lê e grava em transação", "SQL. Em produção, pooler em modo transação com TLS verificado")
+
+SHOW_LEGEND()
+@enduml

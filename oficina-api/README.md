@@ -2,7 +2,7 @@
 
 Back-end (MVP) de uma oficina mecânica: ordens de serviço, clientes, veículos, serviços, peças, estoque e orçamento. Tech Challenge Fase 1, FIAP SOAT.
 
-> Estado em 25/10/2026: fluxo completo da OS pronto, do cadastro à entrega (D+2 a D+6). Qualidade, documentação e vídeo seguem nas etapas D+7 a D+9 do [plano](../docs/PLANO_CONSTRUTIVO.md).
+> Fluxo completo da OS, do cadastro à entrega, com qualidade e segurança verificadas (D+7). Visão geral da entrega no [README da raiz](../README.md).
 
 ## Objetivo e solução
 
@@ -200,4 +200,7 @@ Cada suíte cria e apaga um banco próprio nesse servidor.
 
 - Plano construtivo: [docs/PLANO_CONSTRUTIVO.md](../docs/PLANO_CONSTRUTIVO.md)
 - Documentação DDD: [docs/ddd](../docs/ddd), quadro FigJam https://www.figma.com/board/NKQrpQI2vGYRkX8YnBAZMN
+- C4 níveis 1 a 3: [docs/arquitetura/c4.pdf](../docs/arquitetura/c4.pdf)
+- Evidências de qualidade e segurança: [docs/evidencias](../docs/evidencias/README.md)
+- Roteiro do vídeo: [docs/video/roteiro.md](../docs/video/roteiro.md)
 - Vídeo da entrega: pendente

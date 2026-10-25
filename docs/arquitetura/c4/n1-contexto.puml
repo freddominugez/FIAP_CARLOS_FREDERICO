@@ -1,0 +1,19 @@
+@startuml n1-contexto
+!include <C4/C4_Context>
+title C4 nível 1: contexto do Sistema da Oficina
+LAYOUT_TOP_DOWN()
+
+Person(cliente, "Cliente", "Dono do veículo. Acompanha as próprias OS e aprova ou rejeita o orçamento.")
+Person(atendente, "Atendente", "Cadastra cliente e veículo, abre a OS, publica orçamento e entrega o veículo.")
+Person(tecnico, "Técnico", "Faz o diagnóstico, monta o orçamento, executa e finaliza.")
+Person(admin, "Administrador", "Mantém o catálogo de serviços e peças e o estoque. Consulta o tempo médio.")
+
+System(oficina, "Sistema da Oficina", "Ordem de serviço do recebimento à entrega, orçamento versionado, aprovação do cliente e estoque de peças.")
+
+Rel(cliente, oficina, "Consulta OS e decide o orçamento", "HTTPS, JSON, JWT")
+Rel(atendente, oficina, "Cadastros, abertura e entrega", "HTTPS, JSON, JWT")
+Rel(tecnico, oficina, "Diagnóstico e execução", "HTTPS, JSON, JWT")
+Rel(admin, oficina, "Catálogo, estoque e indicador", "HTTPS, JSON, JWT")
+
+SHOW_LEGEND()
+@enduml
