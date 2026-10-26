@@ -5,7 +5,7 @@ window.PORTAL_CONFIG = {
   githubUrl: "",          // repositório público do back-end
   branch: "main",
   commitHash: "",         // hash do commit da entrega final
-  miroUrl: "",            // FigJam: https://www.figma.com/board/NKQrpQI2vGYRkX8YnBAZMN (preencher depois de liberar o link público)
+  miroUrl: "https://www.figma.com/board/NKQrpQI2vGYRkX8YnBAZMN/Oficina-SOAT---Event-Storming", // FigJam, link público de visualização
   apiDocsUrl: "/api/docs", // Swagger da API publicada no mesmo domínio
   pdfEntrega: "",         // ex.: "pdfs/entrega-fase1.pdf"
   rm: "",

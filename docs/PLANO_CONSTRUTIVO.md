@@ -15,7 +15,7 @@ A FIAP avalia um único PDF com identificação, links clicáveis, branch e hash
 |---|---|---|
 | Código do back-end | GitHub público, branch `main` protegida, merge só por PR | no GitHub (`freddominugez/FIAP_CARLOS_FREDERICO`), ainda privado. Tornar público até a entrega |
 | Vídeo de até 15 minutos | YouTube público | roteiro pronto em `docs/video/roteiro.md`. Falta gravar |
-| Documentação DDD | FigJam (equivalente ao Miro, aceito pelo enunciado) com acesso sem pedido de permissão, exportada em `docs/ddd/` | Event Storming montado e exportado. Falta liberar o link público |
+| Documentação DDD | FigJam (equivalente ao Miro, aceito pelo enunciado) com acesso sem pedido de permissão, exportada em `docs/ddd/` | Event Storming montado, exportado e com link público de visualização |
 | Diagramas C4 | níveis 1, 2 e 3, exportados em `docs/arquitetura/` | feito: fontes PlantUML em `docs/arquitetura/c4/`, PNG, SVG e `c4.pdf`, conferidos contra o código |
 | Evidências | cobertura e análise de vulnerabilidades em `docs/evidencias/` | feito na D+7, com SHA-256 |
 
@@ -269,7 +269,7 @@ Roteiro de até 15 minutos, detalhado com a sequência no Swagger em `docs/video
 - [ ] GitHub público, `main` protegida, tag e hash informados
 - [x] README com todos os itens que o enunciado lista, validado num clone limpo
 - [ ] YouTube público, até 15 minutos, mesmo commit do PDF
-- [ ] FigJam com link público de visualização e exportado em `docs/ddd/`
+- [x] FigJam com link público de visualização e exportado em `docs/ddd/`
 - [x] C4 níveis 1, 2 e 3 exportados
 - [ ] Atraso evitado: depois de 03/11 a nota perde 30%
 - [x] Cobertura ≥ 80% e relatório de vulnerabilidades com hash
