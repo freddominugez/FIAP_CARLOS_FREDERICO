@@ -11,7 +11,7 @@ Serve a dois usos:
 
 | Item | Valor |
 |---|---|
-| Duração alvo | 14 min 30 s (limite do enunciado: 15 min) |
+| Duração alvo | até 15 min (limite do enunciado). A narração soma cerca de 1.240 palavras, uns 8 min 30 s de áudio. Os tempos de cada cena abaixo deixam folga para as telas do Swagger, que podem ficar um pouco mais longas que a fala |
 | Formato | 1920 x 1080, 30 fps, MP4 (H.264 + AAC) |
 | Voz | ElevenLabs, modelo Multilingual v2, português do Brasil, voz masculina calma. Stability 50, Similarity 75, Style 0, Speaker boost ligado |
 | Ritmo esperado | cerca de 150 palavras por minuto. A duração real de cada cena é a do áudio gerado |
