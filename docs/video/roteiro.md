@@ -1,6 +1,6 @@
 # Roteiro do vídeo (até 15 minutos)
 
-Tela gravada com narração, sem câmera. Publicar no YouTube como **público** ou **não listado** e conferir em janela anônima. O vídeo mostra o mesmo commit informado no PDF.
+Tela gravada com narração, sem câmera. Narração pronta para o ElevenLabs, imagens e decupagem cena a cena em [roteiro-decupado.md](roteiro-decupado.md). Publicar no YouTube como **público** ou **não listado** e conferir em janela anônima. O vídeo mostra o mesmo commit informado no PDF.
 
 ## Antes de gravar
 
