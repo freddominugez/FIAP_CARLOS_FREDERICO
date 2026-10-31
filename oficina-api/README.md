@@ -171,4 +171,4 @@ Cada suíte cria e apaga um banco próprio nesse servidor.
 - Documentação DDD: [docs/ddd](../docs/ddd), quadro FigJam https://www.figma.com/board/NKQrpQI2vGYRkX8YnBAZMN
 - C4 níveis 1 a 3: [docs/arquitetura/c4.pdf](../docs/arquitetura/c4.pdf)
 - Evidências de qualidade e segurança: [docs/evidencias](../docs/evidencias/README.md)
-- Vídeo da entrega: pendente
+- Vídeo da entrega: https://www.youtube.com/watch?v=JJ3eOXgTZI4

@@ -5,7 +5,7 @@ Carlos Frederico Ribeiro de Almeida Dominguez. SOAT, Software Architecture, Fase
 | | |
 |---|---|
 | API publicada (Swagger) | https://oficina-fiap-soat.vercel.app/api/docs |
-| Vídeo da entrega | pendente: o link entra aqui depois da publicação no YouTube |
+| Vídeo da entrega | https://www.youtube.com/watch?v=JJ3eOXgTZI4 |
 | Documentação DDD | [docs/ddd/](docs/ddd/), quadro no FigJam https://www.figma.com/board/NKQrpQI2vGYRkX8YnBAZMN |
 
 ## Objetivo
@@ -104,7 +104,9 @@ Resultados, cobertura e análise de vulnerabilidades (npm audit, Gitleaks, Trivy
 
 ## Vídeo
 
-Pendente. O link do YouTube entra no topo deste arquivo e no PDF da entrega.
+Vídeo da entrega no YouTube (10min37s): https://www.youtube.com/watch?v=JJ3eOXgTZI4
+
+Mostra proposta, arquitetura, banco de dados, Event Storming e DDD, o fluxo completo da OS no Swagger, autenticação, testes e análise de vulnerabilidades.
 
 ## API publicada
 
