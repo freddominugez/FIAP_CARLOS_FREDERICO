@@ -4,7 +4,6 @@ Carlos Frederico Ribeiro de Almeida Dominguez. SOAT, Software Architecture, Fase
 
 | | |
 |---|---|
-| Portal do projeto | https://oficina-fiap-soat.vercel.app |
 | API publicada (Swagger) | https://oficina-fiap-soat.vercel.app/api/docs |
 | Vídeo da entrega | pendente: o link entra aqui depois da publicação no YouTube |
 | Documentação DDD | [docs/ddd/](docs/ddd/), quadro no FigJam https://www.figma.com/board/NKQrpQI2vGYRkX8YnBAZMN |
@@ -91,26 +90,22 @@ Resultados, cobertura e análise de vulnerabilidades (npm audit, Gitleaks, Trivy
 | Pasta | Conteúdo |
 |---|---|
 | `oficina-api/` | o produto: código, migrações, testes, Dockerfile e docker-compose |
-| `portal/` | site estático com plano, diagramas, referências e links da entrega |
 | `docs/adr/` | decisões de arquitetura |
-| `docs/ddd/` | Event Storming, linguagem ubíqua, mapa de contexto |
+| `docs/ddd/` | Event Storming, linguagem ubíqua, mapa de contexto e diagramas |
 | `docs/arquitetura/` | C4 níveis 1, 2 e 3 (PlantUML, PNG, SVG e PDF) |
-| `docs/requisitos/` | matriz de rastreabilidade, DoR e DoD |
 | `docs/evidencias/` | testes, cobertura e vulnerabilidades |
-| `docs/video/` | roteiro do vídeo |
-| `entrega/` | PDF oficial da entrega |
 
 ## Documentação DDD
 
 - Event Storming dos três fluxos (criação da OS, acompanhamento, peças e insumos): [docs/ddd/event-storming.pdf](docs/ddd/event-storming.pdf) e o quadro no FigJam
 - Linguagem ubíqua com o nome de cada termo no código e no banco: [docs/ddd/linguagem-ubiqua.md](docs/ddd/linguagem-ubiqua.md)
 - Mapa de contexto: [docs/ddd/mapa-de-contexto.md](docs/ddd/mapa-de-contexto.md)
-- C4: [docs/arquitetura/c4.pdf](docs/arquitetura/c4.pdf)
+- C4 níveis 1 a 3: [docs/ddd/diagramas.pdf](docs/ddd/diagramas.pdf), fontes PlantUML em [docs/arquitetura/](docs/arquitetura/)
 
 ## Vídeo
 
 Pendente. O link do YouTube entra no topo deste arquivo e no PDF da entrega.
 
-## Publicação
+## API publicada
 
-`vercel.json` publica portal e API no mesmo projeto Vercel, com Vercel Services. O banco de produção é o schema `oficina` num projeto Supabase. Passo a passo em [oficina-api/README.md](oficina-api/README.md#publicação-na-vercel), decisão em [docs/adr/0005-hospedagem-vercel-supabase.md](docs/adr/0005-hospedagem-vercel-supabase.md). Plano completo em [docs/PLANO_CONSTRUTIVO.md](docs/PLANO_CONSTRUTIVO.md).
+A mesma API roda publicada para demonstração em https://oficina-fiap-soat.vercel.app/api/docs, com banco PostgreSQL gerenciado (Supabase). Os usuários de demonstração acima valem lá. A execução local pelo Docker Compose não depende dela.

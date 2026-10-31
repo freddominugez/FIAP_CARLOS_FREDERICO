@@ -132,41 +132,11 @@ Regras da execução à entrega:
 - Erro de estoque se corrige com estorno de entrada, ajuste ou consumo. O estorno é um movimento novo que aponta para o original, uma vez por movimento.
 - Tempo médio: média de (finalização menos início da execução) das OS finalizadas em `[de, ate)`, com o tamanho da amostra. Sem amostra, a média é `null`, nunca zero. Período máximo de um ano.
 
-## Publicação na Vercel
+## API publicada
 
-Produção: https://oficina-fiap-soat.vercel.app (portal), https://oficina-fiap-soat.vercel.app/api/docs (Swagger). Os usuários de demonstração da tabela acima valem também lá.
+Swagger em produção: https://oficina-fiap-soat.vercel.app/api/docs. Os usuários de demonstração da tabela acima valem também lá.
 
-O `vercel.json` na raiz do repositório publica portal e API no mesmo projeto, com Vercel Services ([ADR 0005](../docs/adr/0005-hospedagem-vercel-supabase.md)). `/api/*` vai para este app, e o resto para `portal/`.
-
-**Banco.** Schema `oficina` no projeto Supabase `fdjquokigoupvqrgtqmt` (região São Paulo), acessado só pelo usuário `oficina_app`. Esse usuário tem `search_path = oficina`, cria objetos só nesse schema e não tem permissão em nenhum outro. Os papéis `anon` e `authenticated` do Supabase não enxergam o schema. A senha fica em `.env.supabase`, fora do Git.
-
-| Uso | Endereço | Porta |
-|---|---|---|
-| API (Vercel) | `aws-1-sa-east-1.pooler.supabase.com`, modo transação | 6543 |
-| Migrações e seed | `aws-1-sa-east-1.pooler.supabase.com`, modo sessão | 5432 |
-
-O usuário de conexão no pooler é `oficina_app.fdjquokigoupvqrgtqmt`. A conexão usa TLS verificado contra a CA do Supabase, salva em `certs/supabase-root-2021-ca.crt` (SHA-256 `80:70:25:AD:...:72:E6:CA:FA`, válida até 2031).
-
-Migrações (modo sessão, porque o `node-pg-migrate` usa lock de sessão):
-
-```bash
-set -a; . ./.env.supabase; set +a
-DATABASE_URL="postgres://oficina_app.$SUPABASE_REF:$OFICINA_DB_PASSWORD@aws-1-sa-east-1.pooler.supabase.com:5432/postgres?sslmode=verify-full&sslrootcert=certs/supabase-root-2021-ca.crt" \
-  npx node-pg-migrate up --migrations-dir db/migrations --migration-file-language sql --schema oficina
-```
-
-Variáveis no painel da Vercel (serviço `api`):
-
-| Variável | Valor |
-|---|---|
-| `DATABASE_URL` | `postgres://oficina_app.fdjquokigoupvqrgtqmt:<senha>@aws-1-sa-east-1.pooler.supabase.com:6543/postgres`, sem `sslmode` |
-| `DATABASE_SSL_CA` | conteúdo de `certs/supabase-root-2021-ca.crt` |
-| `DATABASE_POOL_MAX` | `3` |
-| `JWT_SECRET` | 32 caracteres ou mais, diferente do local |
-
-Dois cuidados que o deploy exigiu, explicados no ADR 0005: o `overrides` de `content-disposition` no `package.json` e o `server.listen()` direto quando `VERCEL` está definida. `npm run build && npm run check:carga` confere o primeiro localmente.
-
-O seed de demonstração não roda na Vercel. Os 3 usuários de demonstração já foram criados no Supabase. Para recriar, rodar `npm run seed` localmente com a URL do modo sessão e `DATABASE_SSL_CA`.
+A API publicada é o mesmo app do container, rodando como função Node na Vercel com PostgreSQL gerenciado (Supabase), conexão com TLS verificado (`DATABASE_SSL_CA`) e pool pequeno (`DATABASE_POOL_MAX=3`). Dois ajustes no código existem por causa dessa execução: o `server.listen()` direto quando a variável `VERCEL` está definida (`src/main/server.ts`) e o `overrides` de `content-disposition` no `package.json`, conferido por `npm run build && npm run check:carga`.
 
 ## Qualidade e segurança
 
@@ -198,9 +168,7 @@ Cada suíte cria e apaga um banco próprio nesse servidor.
 
 ## Links
 
-- Plano construtivo: [docs/PLANO_CONSTRUTIVO.md](../docs/PLANO_CONSTRUTIVO.md)
 - Documentação DDD: [docs/ddd](../docs/ddd), quadro FigJam https://www.figma.com/board/NKQrpQI2vGYRkX8YnBAZMN
 - C4 níveis 1 a 3: [docs/arquitetura/c4.pdf](../docs/arquitetura/c4.pdf)
 - Evidências de qualidade e segurança: [docs/evidencias](../docs/evidencias/README.md)
-- Roteiro do vídeo: [docs/video/roteiro.md](../docs/video/roteiro.md)
 - Vídeo da entrega: pendente
