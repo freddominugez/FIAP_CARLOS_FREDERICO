@@ -1,8 +1,0 @@
-# Nunca enviar para a Vercel: segredos locais, material da FIAP e artefatos de build
-.env
-.env.*
-!.env.example
-referencias/
-**/node_modules/
-**/coverage/
-**/dist/

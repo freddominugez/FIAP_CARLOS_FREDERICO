@@ -14,3 +14,18 @@ referencias/
 # cópias locais de trabalho, fora do repositório
 /TECH_CHALENGER/
 /FIAP_CARLOS_FREDERICO/
+
+# Fora do repositório público: só vai para o Git o que o enunciado pede
+# (código, README, documentação DDD, C4, decisões de arquitetura e evidências).
+# Planejamento, roteiros, instruções e material de publicação ficam só na máquina local.
+docs/PLANO_CONSTRUTIVO.md
+docs/video/
+docs/requisitos/
+docs/adr/0005-hospedagem-vercel-supabase.md
+portal/
+entrega/
+vercel.json
+.vercelignore
+oficina-api/certs/
+*.mp4
+*.mov
